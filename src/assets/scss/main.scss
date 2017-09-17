@@ -52,7 +52,7 @@ div.recicla{
   background-color: #D1EAAF;
   border: 1px solid #D1EAAF;
   border-radius: 16px;
-  text-align: center;
+
   a{
     background-color: #17311F;
     font-family: 'Josefin Sans', sans-serif;
@@ -95,7 +95,7 @@ div.recicla{
 }
 .cont_detail{
   font-family: 'Josefin Sans', sans-serif;
-  background-color: #D1EAAF ;
+  font-size: 1.1rem;
   border: 1px solid #17311F;
   border-radius: 16px;
   margin: 10px 0;
@@ -105,9 +105,10 @@ div.recicla{
    margin: 5px 0;
   }
   div.ruta_acopio{
+    margin-left: 60px;
     display: inline-block;
-    color: #F3F6DD;
-    background-color: #17311F;
+    color: #17311F;
+    background-color: #D1EAAF;
     border: 1px solid #D1EAAF;
     border-radius: 16px;
   }

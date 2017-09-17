@@ -11,7 +11,7 @@ const TipsR = (updated) => {
                     const row = $('<div class="row bg_green_ligth"></div>');
                     const divTitle = $('<div class="center-align col s12 recicla"><h5>Tips</h5></div>');
                     const container = $('<div class="center-align col s12 cont_optciones"></div>');
-                    const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+                    const btnReturn = $('<div class="flex"><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
 
     tiposT.forEach(function(type){
       const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
@@ -32,6 +32,8 @@ const TipsR = (updated) => {
             updated();
         });
     });
+
+
     btnReturn.on("click", (e) => {
         e.preventDefault();
         state.pagina = null;
