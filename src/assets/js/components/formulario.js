@@ -1,29 +1,28 @@
 'use strict';
 const FormAcopio = (update) => {
 
-  console.log("Holi mundi");
   const cont_form =$('<section class="cont"></section>');
   const form =$('<div class="row">'+
     '<form class="col s12">'+
       '<div class="row">'+
       '  <div class="input-field col s10">'+
         '  <i class="material-icons prefix">account_circle</i>'+
-        '  <input id="icon_prefix" type="text" class="validate">'+
+        '  <input id="icon_prefix" type="text" class="validate" required>'+
         '  <label for="icon_prefix">Nombres y Apellidos</label>'+
       '  </div>'+
       '  <div class="input-field col s10">'+
         '  <i class="material-icons prefix">phone</i>'+
-        '  <input id="icon_telephone" type="tel" class="validate">'+
+        '  <input id="icon_telephone" type="number"  maxlength="999999999"  class="validate" required>'+
         '  <label for="icon_telephone">Celular</label>'+
         '</div>'+
         '<div class="input-field col s10">'+
           '  <i class="material-icons prefix">drafts</i>'+
-          '  <input id="email" type="email" class="validate">'+
+          '  <input id="email" type="email" class="validate" required>'+
           '  <label for="email" data-error="wrong" data-success="right">Email</label>'+
         '</div>'+
         '<div class="input-field col s10">'+
           '  <i class="material-icons prefix">location_city</i>'+
-          '  <input id="icon_location_city" type="tel" class="validate">'+
+          '  <input id="icon_location_city" type="tel" class="validate" required>'+
           '  <label for="icon_location_city">Ubicación</label>'+
         '</div>'+
         '<div class="col s10"><h6>Horario de Recepción</h6></div>'+
@@ -40,12 +39,12 @@ const FormAcopio = (update) => {
         '</div>'+
         '<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
-          '  <input type="text" class="timepicker">'+
+          '  <input type="text" class="timepicker" required>'+
           '  <label for="icon_event">Inicio</label>'+
         '</div>'+
         '<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
-          '  <input type="text" class="timepicker">'+
+          '  <input type="text" class="timepicker" required>'+
           '  <label for="icon_event">Fin</label>'+
         '</div>'+
         '<div class="col s10"><h6>Materiales</h6></div>'+
@@ -66,9 +65,16 @@ const FormAcopio = (update) => {
     '  </div>'+
   '  </form>'+
   '</div>');
-  const enviar =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>')
-  form.append(enviar);
+  const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>')
+  form.append(btn_send);
   cont_form.append(form);
+
+  btn_send.on('click', (e) =>{
+    e.preventDefault();
+     state.pagina = 5;
+     update();
+  });
+
   $(_ => {
       $('.timepicker').pickatime({
       default: 'now', // Set default time: 'now', '1:30AM', '16:30'
