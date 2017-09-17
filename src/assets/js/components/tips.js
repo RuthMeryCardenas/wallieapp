@@ -24,9 +24,10 @@ const TipsR = (updated) => {
 
         divContent.on("click", (e) => {
             e.preventDefault();
-            state.material = $(e.currentTarget).data("id");
+            state.material = $(e.currentTarget).data("id").toLowerCase();;
             console.log(state.material);
-            // state.type = filterByMaterial(state.material);
+            state.locations = filterByMaterial(state.material);
+            console.log(state.locations);
             state.pagina = 7;
             updated();
         });

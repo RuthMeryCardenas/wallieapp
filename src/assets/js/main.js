@@ -28,20 +28,18 @@ const render = (root) => {
         case 6:
             wrapper.append(TipsR(updated));
             break;
-<<<<<<< HEAD
         case 7:
             wrapper.append(TipDetail(updated));
             break;
     };
-=======
-        
-    }
->>>>>>> 21b7e2b4d620a6a7da59b046adb0c48768b264e6
 
     root.append(wrapper);
-    if(state.pagina == 2 || state.pagina == 3){
+
+    if(state.pagina == 2 || state.pagina == 3 ){
         initMap();
-        
+    }
+    if(state.pagina == 4){
+        initAutocomplete()
     }
 
 }

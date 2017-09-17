@@ -1,13 +1,20 @@
 'use strict';
+function initAutocomplete() {
+  console.log("hola");
 
+  var input = /** @type {!HTMLInputElement} */(
+            document.getElementById('ubicacion'));
+  var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds',map);
+};
 function initMap () {
-    console.log("hola");
+
     var uluru = { lat: -25.363, lng: 131.044 };
     var map = new google.maps.Map(document.getElementById("mapa"), {
         zoom: 4,
         center: uluru
     });
-    
+
     let pos;
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -15,18 +22,18 @@ function initMap () {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            
+
             const map = new google.maps.Map(document.getElementById("mapa"), {
                 zoom: 14,
                 center: pos
             });
-            
+
             var marker = new google.maps.Marker({
                 position: pos,
                 map: map
             });
 
-            
+
             if(state.pagina == 2){
                 var markers = state.locations[0].lugares_acopio.map(function (location) {
                     var contentString = '<div id = "content"><p>'+location.name+'</p><p>'+location.direccion+'</p><p>'+location.horario+'</p></div>';
@@ -43,7 +50,7 @@ function initMap () {
                         infowindow.open(map, newMarker);
 
                     });
-                   
+
                     return newMarker;
                 });
 
@@ -53,7 +60,7 @@ function initMap () {
                 calculateAndDisplayRoute(pos, map);
 
             }
-            
+
         });
     } else {
         // Browser doesn't support Geolocation
@@ -89,4 +96,3 @@ function calculateAndDisplayRoute(pos, map) {
         }
     });
 }
-

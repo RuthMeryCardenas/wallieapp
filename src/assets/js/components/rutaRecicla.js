@@ -9,8 +9,6 @@ const RutaRecicla = (updated) => {
     parent.append(mapa);
     parent.append(detail);
 
-    
-
     return parent;
 
 }

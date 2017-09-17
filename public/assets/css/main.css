@@ -10,7 +10,9 @@ body {
   height: 150px;
   background-image: url("../img/logo1.png");
   background-repeat: no-repeat;
-  background-size: contain; }
+  background-size: cover;
+  background-position: center;
+  margin-top: 40px; }
 
 .actions {
   margin-top: 30px; }

@@ -2,72 +2,73 @@
 const FormAcopio = (update) => {
 
   const cont_form =$('<section class="cont"></section>');
-  const form =$('<div class="row">'+
-    '<form class="col s12">'+
-      '<div class="row">'+
-      '  <div class="input-field col s10">'+
-        '  <i class="material-icons prefix">account_circle</i>'+
-        '  <input id="icon_prefix" type="text" class="validate">'+
-        '  <label for="icon_prefix">Nombres y Apellidos</label>'+
-      '  </div>'+
-      '  <div class="input-field col s10">'+
-        '  <i class="material-icons prefix">phone</i>'+
-        '  <input id="icon_telephone" type="number"  maxlength="999999999"  class="validate">'+
-        '  <label for="icon_telephone">Celular</label>'+
-        '</div>'+
-        '<div class="input-field col s10">'+
+  const row_1 =$('<div class="row"></div>');
+  const form  =$('<form class="col s12"></div>');
+  const row_2 =$('<div class="row"></div>');
+        row_1.append(form);
+        form.append(row_2);
+  const int_1 =$('<div class="input-field col s10"></div>');
+  const int_11=$('<i class="material-icons prefix">account_circle</i>');
+  const int_12=$('<input id="icon_prefix" type="text" class="validate">');
+  const int_13 =$('<label for="icon_prefix">Nombres y Apellidos</label>');
+  int_1.append(int_11,int_12,int_13) ;
+  const int_2 =$('<div class="input-field col s10">'+
+        '<i class="material-icons prefix">phone</i>'+
+        '<input id="icon_telephone" type="number"  maxlength="999999999"  class="validate">'+
+        '<label for="icon_telephone">Celular</label>'+
+        '</div>');
+  const int_3 =$('<div class="input-field col s10">'+
           '  <i class="material-icons prefix">drafts</i>'+
           '  <input id="email" type="email" class="validate">'+
           '  <label for="email" data-error="wrong" data-success="right">Email</label>'+
-        '</div>'+
-        '<div class="input-field col s10">'+
-          '  <i class="material-icons prefix">location_city</i>'+
-          '  <input id="icon_location_city" type="tel" class="validate">'+
-          '  <label for="icon_location_city">Ubicación</label>'+
-        '</div>'+
-        '<div class="col s10"><h6>Horario de Recepción</h6></div>'+
+        '</div>');
+  const int_4 =$('<div class="input-field col s10"></div>');
+  const int_41 =$('<i class="material-icons prefix">location_city</i>');
+  const int_42 =$('<input id="ubicacion" type="tel" class="validate">');
+  const int_43 =$('<label for="ubicacion">Ubicación</label>');
+  int_4.append(int_41,int_42,int_43);
+
+  const int_5 =$('<div class="col s10"><h6>Horario de Recepción</h6></div>'+
         '<div class="col s10">'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia1"/><label for="dia1">L</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia2" /><label for="dia2">M</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia3" /><label for="dia3">Mi</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia4"/><label for="dia4">J</label></p>'+
-        '</div>'+
-        '<div class="col s10">'+
+        '</div>');
+const int_6 =$('<div class="col s10">'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia5" /><label for="dia5">V</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia6" /><label for="dia6">S</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia7" /><label for="dia7">D</label></p>'+
-        '</div>'+
-        '<div class="input-field col s5">'+
+        '</div>');
+const int_7 =$('<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
           '  <input type="text" class="timepicker" required>'+
           '  <label for="icon_event">Inicio</label>'+
-        '</div>'+
-        '<div class="input-field col s5">'+
+        '</div>');
+const int_8 =$('<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
           '  <input type="text" class="timepicker" required>'+
           '  <label for="icon_event">Fin</label>'+
-        '</div>'+
-        '<div class="col s10"><h6>Materiales</h6></div>'+
-        '<div class="col s5">'+
-          '<p><input type="checkbox" class="filled-in" id="in1"/><label for="in1">Plástico</label></p>'+
-          '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Ropa</label></p>'+
-          '<p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Vidrio</label></p>'+
-        '</div>'+
-        '<div class="col s5">'+
-          '<p><input type="checkbox" class="filled-in" id="in4"/><label for="in4">Pilas</label></p>'+
-          '<p><input type="checkbox" class="filled-in" id="in5"/><label for="in5">Aceite</label></p>'+
-          '<p><input type="checkbox" class="filled-in" id="in6" /><label for="in6">Papel y Carton</label></p>'+
-        '</div>'+
-        '<div class="input-field col s12">'+
+        '</div>');
+const int_9 =$('<div class="col s10"><h6>Materiales</h6></div>');
+const int_s1 =$('<div class="col s5">'+
+                '<p><input type="checkbox" class="filled-in" id="in1"/><label for="in1">Plástico</label></p>'+
+                '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Ropa</label></p>'+
+                '<p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Vidrio</label></p>'+
+              '</div>');
+const int_s2 =$('<div class="col s5">'+
+                  '<p><input type="checkbox" class="filled-in" id="in4"/><label for="in4">Pilas</label></p>'+
+                  '<p><input type="checkbox" class="filled-in" id="in5"/><label for="in5">Aceite</label></p>'+
+                  '<p><input type="checkbox" class="filled-in" id="in6" /><label for="in6">Papel y Carton</label></p>'+
+                '</div>');
+const int_s3 =$('<div class="input-field col s12">'+
             '<textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>'+
             '<label for="textarea1">Observación</label>'+
-         '</div>'+
-    '  </div>'+
-  '  </form>'+
-  '</div>');
+         '</div>');
+ row_2.append(int_1,int_2,int_3,int_4,int_5,int_6,int_7,int_8,int_9,int_s1,int_s2,int_s3);
   const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>');
   form.append(btn_send);
-  cont_form.append(form);
+  cont_form.append(row_1);
 
   btn_send.on('click', (e) =>{
     e.preventDefault();
