@@ -1,5 +1,390 @@
-<<<<<<< HEAD
-"use strict";console.log("hola");var root=$(".root"),render=function(e){e.empty();var i=$('<div class="wrapper"></div>');switch(state.pagina){case null:i.append(FormAcopio(updated));break;case 1:i.append(Recicla(updated));break;case 2:i.append(MapaRecicla(updated));break;case 3:i.append(RutaRecicla(updated));break;case 4:i.append(Home(updated));break;case 5:i.append(SuccesAcopio(updated));break;case 6:i.append(TipsR(updated));break;case 7:i.append(Contacto(updated))}e.append(i)},updated=function(){render(root)},state={pagina:null};$(function(e){var i=$(".root");render(i)});var FormAcopio=function(e){var i=$('<section class="cont"></section>'),a=$('<div class="row"><form class="col s12"><div class="row">  <div class="input-field col s10">  <i class="material-icons prefix">account_circle</i>  <input id="icon_prefix" type="text" class="validate" required>  <label for="icon_prefix">Nombres y Apellidos</label>  </div>  <div class="input-field col s10">  <i class="material-icons prefix">phone</i>  <input id="icon_telephone" type="number"  maxlength="999999999"  class="validate" required>  <label for="icon_telephone">Celular</label></div><div class="input-field col s10">  <i class="material-icons prefix">drafts</i>  <input id="email" type="email" class="validate" required>  <label for="email" data-error="wrong" data-success="right">Email</label></div><div class="input-field col s10">  <i class="material-icons prefix">location_city</i>  <input id="icon_location_city" type="tel" class="validate" required>  <label for="icon_location_city">Ubicación</label></div><div class="col s10"><h6>Horario de Recepción</h6></div><div class="col s10"><p class="inline"><input type="checkbox" class="filled-in" id="dia1"/><label for="dia1">L</label></p><p class="inline"><input type="checkbox" class="filled-in" id="dia2" /><label for="dia2">M</label></p><p class="inline"><input type="checkbox" class="filled-in" id="dia3" /><label for="dia3">Mi</label></p><p class="inline"><input type="checkbox" class="filled-in" id="dia4"/><label for="dia4">J</label></p></div><div class="col s10"><p class="inline"><input type="checkbox" class="filled-in" id="dia5" /><label for="dia5">V</label></p><p class="inline"><input type="checkbox" class="filled-in" id="dia6" /><label for="dia6">S</label></p><p class="inline"><input type="checkbox" class="filled-in" id="dia7" /><label for="dia7">D</label></p></div><div class="input-field col s5">  <i class="material-icons prefix">event</i>  <input type="text" class="timepicker" required>  <label for="icon_event">Inicio</label></div><div class="input-field col s5">  <i class="material-icons prefix">event</i>  <input type="text" class="timepicker" required>  <label for="icon_event">Fin</label></div><div class="col s10"><h6>Materiales</h6></div><div class="col s5"><p><input type="checkbox" class="filled-in" id="in1"/><label for="in1">Plástico</label></p><p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Ropa</label></p><p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Vidrio</label></p></div><div class="col s5"><p><input type="checkbox" class="filled-in" id="in4"/><label for="in4">Pilas</label></p><p><input type="checkbox" class="filled-in" id="in5"/><label for="in5">Aceite</label></p><p><input type="checkbox" class="filled-in" id="in6" /><label for="in6">Papel y Carton</label></p></div><div class="input-field col s12"><textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea><label for="textarea1">Observación</label></div>  </div>  </form></div>'),l=$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>');return a.append(l),i.append(a),l.on("click",function(i){i.preventDefault(),state.pagina=5,e()}),$(function(e){$(".timepicker").pickatime({default:"now",fromnow:0,twelvehour:!1,donetext:"OK",cleartext:"Clear",canceltext:"Cancel",autoclose:!1,ampmclickable:!0,aftershow:function(){}}),s}),i},Home=function(e){var i=$('<div class="container"></div>'),a=$('<div class="row"><div>'),l=$('<div class="center-align col s12"></div>'),c=$('<div class="col s6><a class="waves-effect waves-light btn-large">Recicla</a></div>'),s=$('<div class="col s6><a class="waves-effect waves-light btn-large">Cargar Nuevo Punto</a></div>'),n=$('<div class="col s6><a class="waves-effect waves-light btn-large">Tips</a></div>');return l.append(c),l.append(s),l.append(n),a.append(l),i.append(a),i},Recicla=function(e){var i=[{name:"Plastico",img:""},{name:"Vidrio",img:""},{name:"Ropa",img:""},{name:"Aceite",img:""},{name:"Cartón y Papel",img:""},{name:"Pilas",img:""}],a=$('<div class="container"></div>'),l=$('<div class="row"><div>'),c=$('<div class="center-align col s12">Recicla</div>');return i.forEach(function(e){var i=$('<div class="col s6"></div>'),a=$('<a class=""><span class=""></span></a>'),l=$('<h5 class="morado">'+e.name+"</h5>");i.append(l),i.append(a)}),l.append(c),l.append(divConte),a.append(l),a},SuccesAcopio=function(e){var i=$('<div class="text-center bg_yellow"></div>'),a=$('<div class="row"></div>'),l=$('<div class="col s12 center-align"><img src="assets/img/img1.jpg" class="logo" alt="check"></div>'),c=$('<div class="col s12"><h5 class="center-align">¡Bien!<br>Gracias por ser parte del movimiento</h5></div>');return a.append(l),a.append(c),i.append(a),setTimeout(function(){state.pagina=null,e()},5e3),i};
-=======
-"use strict";function initMap(a){console.log("hola");var e={lat:-25.363,lng:131.044},t=new google.maps.Map(document.getElementById("mapa"),{zoom:4,center:e}),n=void 0;navigator.geolocation?navigator.geolocation.getCurrentPosition(function(a){n={lat:a.coords.latitude,lng:a.coords.longitude};var e=new google.maps.Map(document.getElementById("mapa"),{zoom:14,center:n});new google.maps.Marker({position:n,map:e})}):handleLocationError(!1,t,t.getCenter())}function handleLocationError(a,e,t){e.setPosition(t),e.setContent(a?"Error: The Geolocation service failed.":"Error: Your browser doesn't support geolocation.")}function calculateAndDisplayRoute(a,e,t){var e=new google.maps.DirectionsRenderer,a=new google.maps.DirectionsService;e.setMap(map),a.route({origin:t,destination:{lat:state.selectedStation.lat,lng:state.selectedStation.long},travelMode:"DRIVING"},function(a,t){if("OK"==t){e.setDirections(a);var n=a.routes[0].legs[0].distance.text;$("#km").text(n)}else window.alert("Directions request failed due to "+t)})}var root=$(".root"),render=function(a){a.empty();var e=$('<div class="wrapper"></div>');switch(state.pagina){case null:e.append(Home(updated));break;case 1:e.append(Recicla(updated));break;case 2:e.append(MapaRecicla(updated));break;case 3:e.append(RutaRecicla(updated));break;case 4:e.append(FormAcopio(updated));break;case 5:e.append(SuccesAcopio(updated));break;case 6:e.append(TipsR(updated));break;case 7:e.append(Contacto(updated))}a.append(e),2==state.pagina&&initMap()},updated=function(){render(root)},state={pagina:null};$(function(a){var e=$(".root");render(e)});var Home=function(a){var e=$('<div class="center-align"></div>'),t=$('<div class="recicla"><a class="waves-effect waves-light btn-large actions">Recicla</a></div><br>'),n=$('<div><a class="waves-effect waves-light btn-large actions">Cargar Nuevo Punto</a></div><br>'),i=$('<div><a class="waves-effect waves-light btn-large actions">Tips</a></div><br>');return e.append(t),e.append(n),e.append(i),t.on("click",function(e){e.preventDefault(),state.pagina=1,a()}),n.on("click",function(e){e.preventDefault(),state.page=2,a()}),i.on("click",function(e){e.preventDefault(),state.page=3,a()}),e},locationDetail=function(a){var e=$('<div class=""></div>'),t=$('<span class=""></span>'),n=$('<span class = "ruta"></span>');return e.append(t),e.append(n),n.on("click",function(a){a.preventDefault()}),e},MapaRecicla=function(a){var e=$('<div class=""></div>'),t=$('<div id="mapa"></div>'),n=$('<div class=""></div>');return e.append(t),e.append(n),state.locations.map(function(a){locationDetail(n,a)}),e},Recicla=function(a){var e=[{name:"Plastico",img:""},{name:"Vidrio",img:""},{name:"Ropa",img:""},{name:"Aceite",img:""},{name:"Cartón y Papel",img:""},{name:"Pilas",img:""}],t=$('<div class="container"></div>'),n=$('<div class="row"><div>'),i=$('<div class="center-align col s12">Recicla</div>'),o=$('<div class="center-align col s12"></div>'),c=$('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');return e.forEach(function(e){var t=$('<div class="col s6" data-id = "'+e.name+'"></div>'),n=$('<a class=""><span class=""></span></a>'),i=$('<h5 class="morado">'+e.name+"</h5>");t.append(i),t.append(n),o.append(t),t.on("click",function(e){e.preventDefault(),state.material=$(e.currentTarget).data("id"),state.pagina=2,a()})}),c.on("click",function(e){e.preventDefault(),state.pagina=null,state.material=null,state.locations=null,a()}),n.append(i),n.append(o),t.append(n),t.append(c),t},filerByMaterial=function(a){};
->>>>>>> 4f669b1e34abc47322f0350fbb2e32400ee23c4b
+"use strict";
+
+
+const root = $(".root");
+const render = (root) => {
+    root.empty();
+    const wrapper = $('<div class="wrapper"></div>');
+
+    switch (state.pagina) {
+        case null:
+            wrapper.append(Home(updated));
+            break;
+        case 1:
+            wrapper.append(Recicla(updated));
+            break;
+        case 2:
+            wrapper.append(MapaRecicla(updated));
+            break;
+        case 3:
+            wrapper.append(RutaRecicla(updated));
+            break;
+        case 4:
+            wrapper.append(FormAcopio(updated));
+            break;
+        case 5:
+            wrapper.append(SuccesAcopio(updated));
+            break;
+        case 6:
+            wrapper.append(TipsR(updated));
+            break;
+        case 7:
+            wrapper.append(Contacto(updated));
+            break;
+    }
+
+    root.append(wrapper);
+    if(state.pagina == 2){
+        initMap();
+    }
+
+}
+
+const updated = function () {
+    render(root);
+}
+const state = {
+    pagina: null,
+}
+
+
+$(_ => {
+  var config = {
+    apiKey: "AIzaSyD046Ozxa4rsgWa1uTUC5lkIYJsOB6nW3c",
+    authDomain: "wallie-6af03.firebaseapp.com",
+    databaseURL: "https://wallie-6af03.firebaseio.com",
+    projectId: "wallie-6af03",
+    storageBucket: "wallie-6af03.appspot.com",
+    messagingSenderId: "846422299759"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+  database.ref().on("value", function(snap){
+
+    state.wallie = snap.val();
+    console.log(state.wallie);
+
+    const root = $(".root");
+    render(root);
+
+});
+});
+
+'use strict';
+const FormAcopio = (update) => {
+
+  const cont_form =$('<section class="cont"></section>');
+  const form =$('<div class="row">'+
+    '<form class="col s12">'+
+      '<div class="row">'+
+      '  <div class="input-field col s10">'+
+        '  <i class="material-icons prefix">account_circle</i>'+
+        '  <input id="icon_prefix" type="text" class="validate">'+
+        '  <label for="icon_prefix">Nombres y Apellidos</label>'+
+      '  </div>'+
+      '  <div class="input-field col s10">'+
+        '  <i class="material-icons prefix">phone</i>'+
+        '  <input id="icon_telephone" type="number"  maxlength="999999999"  class="validate">'+
+        '  <label for="icon_telephone">Celular</label>'+
+        '</div>'+
+        '<div class="input-field col s10">'+
+          '  <i class="material-icons prefix">drafts</i>'+
+          '  <input id="email" type="email" class="validate">'+
+          '  <label for="email" data-error="wrong" data-success="right">Email</label>'+
+        '</div>'+
+        '<div class="input-field col s10">'+
+          '  <i class="material-icons prefix">location_city</i>'+
+          '  <input id="icon_location_city" type="tel" class="validate">'+
+          '  <label for="icon_location_city">Ubicación</label>'+
+        '</div>'+
+        '<div class="col s10"><h6>Horario de Recepción</h6></div>'+
+        '<div class="col s10">'+
+        '<p class="inline"><input type="checkbox" class="filled-in" id="dia1"/><label for="dia1">L</label></p>'+
+        '<p class="inline"><input type="checkbox" class="filled-in" id="dia2" /><label for="dia2">M</label></p>'+
+        '<p class="inline"><input type="checkbox" class="filled-in" id="dia3" /><label for="dia3">Mi</label></p>'+
+        '<p class="inline"><input type="checkbox" class="filled-in" id="dia4"/><label for="dia4">J</label></p>'+
+        '</div>'+
+        '<div class="col s10">'+
+        '<p class="inline"><input type="checkbox" class="filled-in" id="dia5" /><label for="dia5">V</label></p>'+
+        '<p class="inline"><input type="checkbox" class="filled-in" id="dia6" /><label for="dia6">S</label></p>'+
+        '<p class="inline"><input type="checkbox" class="filled-in" id="dia7" /><label for="dia7">D</label></p>'+
+        '</div>'+
+        '<div class="input-field col s5">'+
+          '  <i class="material-icons prefix">event</i>'+
+          '  <input type="text" class="timepicker" required>'+
+          '  <label for="icon_event">Inicio</label>'+
+        '</div>'+
+        '<div class="input-field col s5">'+
+          '  <i class="material-icons prefix">event</i>'+
+          '  <input type="text" class="timepicker" required>'+
+          '  <label for="icon_event">Fin</label>'+
+        '</div>'+
+        '<div class="col s10"><h6>Materiales</h6></div>'+
+        '<div class="col s5">'+
+          '<p><input type="checkbox" class="filled-in" id="in1"/><label for="in1">Plástico</label></p>'+
+          '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Ropa</label></p>'+
+          '<p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Vidrio</label></p>'+
+        '</div>'+
+        '<div class="col s5">'+
+          '<p><input type="checkbox" class="filled-in" id="in4"/><label for="in4">Pilas</label></p>'+
+          '<p><input type="checkbox" class="filled-in" id="in5"/><label for="in5">Aceite</label></p>'+
+          '<p><input type="checkbox" class="filled-in" id="in6" /><label for="in6">Papel y Carton</label></p>'+
+        '</div>'+
+        '<div class="input-field col s12">'+
+            '<textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>'+
+            '<label for="textarea1">Observación</label>'+
+         '</div>'+
+    '  </div>'+
+  '  </form>'+
+  '</div>');
+  const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>');
+  form.append(btn_send);
+  cont_form.append(form);
+
+  btn_send.on('click', (e) =>{
+    e.preventDefault();
+     state.pagina = 5;
+     update();
+  });
+
+  $(_ => {
+      $('.timepicker').pickatime({
+      default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+      fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+      twelvehour: false, // Use AM/PM or 24-hour format
+      donetext: 'OK', // text for done-button
+      cleartext: 'Clear', // text for clear-button
+      canceltext: 'Cancel', // Text for cancel-button
+      autoclose: false, // automatic close timepicker
+      ampmclickable: true, // make AM PM clickable
+      aftershow: function(){} //Function for after opening timepicker
+    });
+  });
+
+  return cont_form;
+};
+
+"use strict";
+
+
+const Home = (updated) => {
+
+    const parent = $('<div class="center-align"></div>');
+    const btnRecicle = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions">Recicla</a></div><br>');
+    const btnPoint = $('<div><a class="waves-effect waves-light btn-large actions">Cargar Nuevo Punto</a></div><br>');
+    const btnTips = $('<div><a class="waves-effect waves-light btn-large actions">Tips</a></div><br>');
+
+    parent.append(btnRecicle);
+    parent.append(btnPoint);
+    parent.append(btnTips);
+
+    btnRecicle.on("click", (e) => {
+        e.preventDefault();
+        state.pagina = 1;
+        updated();
+    });
+    btnPoint.on("click", function (e) {
+        e.preventDefault();
+        state.pagina = 4;
+        updated();
+    });
+    btnTips.on("click", function (e) {
+        e.preventDefault();
+        state.pagina = 6;
+        updated();
+    });
+
+    return parent;
+
+}
+
+'use strict';
+
+function initMap (locations) {
+    console.log("hola");
+    var uluru = { lat: -25.363, lng: 131.044 };
+    var map = new google.maps.Map(document.getElementById("mapa"), {
+        zoom: 4,
+        center: uluru
+    });
+    
+    let pos;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            
+            const map = new google.maps.Map(document.getElementById("mapa"), {
+                zoom: 14,
+                center: pos
+            });
+            
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map
+            });
+            
+            // var markers = state.locations.map(function (location, i) {
+            //     return new google.maps.Marker({
+            //         position: location,
+            //         map: map
+            //     });
+            // });
+
+            // const directionsDisplay = new google.maps.DirectionsRenderer;
+            // const directionsService = new google.maps.DirectionsService;
+            // directionsDisplay.setMap(map);
+            // calculateAndDisplayRoute(directionsService, directionsDisplay, pos);
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, map, map.getCenter());
+    }
+
+
+}
+
+function handleLocationError(browserHasGeolocation, map, pos) {
+    map.setPosition(pos);
+    map.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
+     const directionsDisplay = new google.maps.DirectionsRenderer;
+     const directionsService = new google.maps.DirectionsService;
+     directionsDisplay.setMap(map);
+    directionsService.route({
+        origin: pos,
+        destination: { lat: state.selectedStation.lat, lng: state.selectedStation.long },
+        travelMode: 'DRIVING'
+    }, function (response, status) {
+        if (status == 'OK') {
+            directionsDisplay.setDirections(response);
+            const distancia = ((response.routes[0].legs[0].distance.text));
+            $('#km').text(distancia);
+        } else {
+            window.alert('Directions request failed due to ' + status);
+        }
+    });
+}
+
+
+"use strict";
+
+
+const locationDetail = (updated) => {
+
+    const parent = $('<div class=""></div>');
+    const name = $('<span class=""></span>');
+    const icon = $('<span class = "ruta"></span>');
+
+    parent.append(name);
+    parent.append(icon);
+
+    icon.on("click", (e) => {
+        e.preventDefault();
+
+    });
+
+    return parent;
+}
+
+"use strict";
+
+const MapaRecicla = (updated) => {
+
+    const parent = $('<div class=""></div>');
+    const mapa = $('<div id="mapa"></div>');
+    const detail = $('<div class=""></div>');
+
+    parent.append(mapa);
+    parent.append(detail);
+
+    // state.locations.map(function (location) {
+    //     locationDetail(detail, location);
+    // });
+
+    return parent;
+
+}
+
+"use strict";
+
+const Recicla = (updated) => {
+
+    const tipos = [ { name: "Plastico", img: "" }, 
+                    { name: "Vidrio", img: "" }, 
+                    { name: "Ropa", img: "" }, 
+                    { name: "Aceite", img: "" }, 
+                    { name: "Cartón y Papel", img: "" }, 
+                    { name: "Pilas", img: "" }];
+                    
+    const parent = $('<div class="container"></div>');
+    const row = $('<div class="row"><div>');
+    const divTitle = $('<div class="center-align col s12">Recicla</div>');
+    const container = $('<div class="center-align col s12"></div>');
+    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+
+    tipos.forEach(function(type){
+        const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
+        const img = $('<a class=""><span class=""></span></a>');
+        const h5 = $('<h5 class="morado">'+ type.name + '</h5>');
+
+        divContent.append(h5);
+        divContent.append(img);
+        container.append(divContent);
+
+        divContent.on("click", (e) => {
+            e.preventDefault();
+            state.material = $(e.currentTarget).data("id");
+            // state.locations = filterByMaterial(state.material);
+            state.pagina = 2;
+            updated(); 
+        });
+    });
+    btnReturn.on("click", (e) => {
+        e.preventDefault();
+        state.pagina = null;
+        state.material = null;
+        state.locations = null;
+        updated();
+    })
+
+    row.append(divTitle);    
+    row.append(container);
+    parent.append(row);
+    parent.append(btnReturn);
+    
+
+    return parent;
+
+}
+'use strict';
+const SuccesAcopio = (update) => {
+
+  const divCont_end = $('<div class="text-center bg_yellow"></div>');
+    const row1      =$('<div class="row"></div>');
+    const logo      =$('<div class="col s12 center-align"><img src="assets/img/img1.jpg" class="logo" alt="check"></div>');
+    const cont_text =$('<div class="col s12"><h5 class="center-align">¡Bien!<br>Gracias por ser parte del movimiento</h5></div>');
+
+    row1.append(logo);
+    row1.append(cont_text);
+    divCont_end.append(row1) ;
+
+    setTimeout(function(){
+       state.pagina=null;
+       update();}, 5000);
+
+    return divCont_end;
+}
+
+
+"use strict";
+
+const filerByMaterial = (key) => {
+    
+}

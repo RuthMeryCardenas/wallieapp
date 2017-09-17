@@ -1,0 +1,580 @@
+{
+  "wallie": [{
+      "tipos": "aceite",
+      "lugares_acopio": [{
+          "latitud": "-12.111769",
+          "longitud": "-77.047117 ",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. La Mar Cdra. 9 con Federico Villareal"
+        },
+        {
+          "latitud": "-12.116837",
+          "longitud": "-77.027407",
+          "name": "Contenedor",
+          "horario": " ",
+          "direccion": "Calle Suárez cruce con calle. Gonzales Prada"
+        },
+        {
+          "latitud": "-12.123310",
+          "longitud": "-77.036894",
+          "name": "Contenedor",
+          "horario": " ",
+          "direccion": "Plaza Bolognesi calle Madrid cdra. 2"
+        },
+        {
+          "latitud": "-12.121402",
+          "longitud": "-77.021923",
+          "name": "Contenedor",
+          "horario": " ",
+          "direccion": "Calle Diez Canseco cdra. 7 (Cerca al Parque Tradiciones)"
+        },
+        {
+          "latitud": "-12.122183",
+          "longitud": "-77.011554",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Calle Mariscal Castilla cruce con calle Luis Arias (Altura de Wong Aurora)"
+        },
+        {
+          "latitud": "-12.129605",
+          "longitud": "-77.026503",
+          "name": "Contenedor",
+          "horario": " ",
+          "direccion": "Av. La Paz cdra. 15 cruce con calle San Fernando"
+        },
+        {
+          "latitud": "-12.104675",
+          "longitud": "77.059200",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Exparque La Pera"
+        },
+        {
+          "latitud": "-12.097339",
+          "longitud": "-77.055803",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Salaverry cdra. 30"
+        },
+        {
+          "latitud": "-12.106447",
+          "longitud": "-77.051928",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. PAul Harris cdra"
+        }
+      ],
+
+
+      "tips": [{
+        "titulo": " ",
+        "descripcion": " "
+      }]
+    },
+
+
+
+
+    {
+      "tipos": "pilas",
+      "lugares_acopio": [{
+          "latitud": "-12.104675",
+          "longitud": "-77.059200",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Exparque La Pera"
+        },
+        {
+          "latitud": "-12.097339",
+          "longitud": "-77.055803",
+          "name": "",
+          "horario": "",
+          "direccion": "Salaverry cdra. 30"
+        },
+        {
+          "latitud": "-12.106447",
+          "longitud": "-77.051928",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. PAul Harris cdra. 1"
+        },
+        {
+          "latitud": "-12.122161",
+          "longitud": "-77.012409",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Mariscal Ramón Castilla 640"
+        },
+        {
+          "latitud": "-12.111248",
+          "longitud": "-77.049600",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Ca. Mariano Melgar 247"
+        },
+        {
+          "latitud": "-12.107785",
+          "longitud": "-77.054344",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Ejercito Cdra 13, interior del estadio Manuel Bonilla"
+        },
+        {
+          "latitud": "-12.122896",
+          "longitud": "-77.040040",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Malecón Cisneros Cdra 8"
+        },
+        {
+          "latitud": "-12.130873",
+          "longitud": "-77.029529",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Ca. Aristides Aljovin 153"
+        },
+        {
+          "latitud": "-12.118367",
+          "longitud": "-77.027516",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Ca. General Suarez 189"
+        },
+        {
+          "latitud": "-12.121401",
+          "longitud": "-77.029039",
+          "name": "",
+          "horario": "",
+          "direccion": "Av. Jose Larco 400"
+        },
+        {
+          "latitud": "-12.125479",
+          "longitud": "-77.029657",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Jose Larco 770"
+        },
+        {
+          "latitud": "-12.126857",
+          "longitud": "-77.021358",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Ca. Ramón Ribeyro 490"
+        },
+        {
+          "latitud": "-12.109571",
+          "longitud": "-77.033336",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Ca. García Calderón 400"
+        },
+        {
+          "latitud": "-12.116271",
+          "longitud": "-77.044538",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Ca. Manuel Tovar 255"
+        },
+        {
+          "latitud": "-12.110095",
+          "longitud": "-77.036380",
+          "name": "Wong",
+          "horario": "",
+          "direccion": "Wong Óvalo Gutierrez, Av. Santa Cruz 771"
+        },
+        {
+          "latitud": "-12.125973",
+          "longitud": "-77.017751",
+          "name": "Wong",
+          "horario": "",
+          "direccion": "Wong Benavides Esq. Av. Benavides 1475 San Antonio"
+        },
+        {
+          "latitud": "-12.122925",
+          "longitud": "-77.032154",
+          "name": "Wong",
+          "horario": "",
+          "direccion": "Wong Bajada Balta Av. Malecón Bajada Balta 626"
+        },
+        {
+          "latitud": "-12.146409",
+          "longitud": "-77.021714",
+          "name": "Metro",
+          "horario": "",
+          "direccion": "Metro Barranco, Av. Grau 513"
+        },
+        {
+          "latitud": "-12.141244",
+          "longitud": "-77.017408",
+          "name": "Metro",
+          "horario": "",
+          "direccion": "Metro Óvalo Balta (Óvalo Balta N° 1198 - 1102)"
+        },
+        {
+          "latitud": "",
+          "longitud": "",
+          "name": "",
+          "horario": "",
+          "direccion": "Malecón Manuel Bernales"
+        },
+        {
+          "latitud": "-12.087227",
+          "longitud": "-77.050142",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. General Salaverry Cdra. 30"
+        },
+        {
+          "latitud": "-12.105769",
+          "longitud": "-77.016376",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Guardia Civil con Calle Ricardo Angulo"
+        },
+        {
+          "latitud": "-12.118332",
+          "longitud": "-77.029154",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Arequipa N° 5240"
+        }
+      ],
+
+
+      "tips": [{
+        "titulo": " ",
+        "descripcion": " "
+      }]
+    },
+
+    {
+      "tipos": "papel",
+      "lugares_acopio": [{
+          "latitud": "-12.104675",
+          "longitud": "-77.059200",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Exparque La Pera"
+        },
+        {
+          "latitud": "-12.097339",
+          "longitud": "-77.055803",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Salaverry cdra. 30 "
+        },
+        {
+          "latitud": "-12.106447",
+          "longitud": "-77.051928",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. PAul Harris cdra. 1"
+        },
+        {
+          "latitud": "-12.106647",
+          "longitud": "-77.048303",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Residencial Santa Cruz"
+        },
+        {
+          "latitud": "-12.101340",
+          "longitud": "-77.033306",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Parque Santa Rosa"
+        },
+        {
+          "latitud": "-12.092417",
+          "longitud": "-77.032174",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Javier Prado con Av. Petit Thouars"
+        },
+        {
+          "latitud": "-12.093458",
+          "longitud": "-77.025914",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Parque Cáceres"
+        },
+        {
+          "latitud": "-12.099749",
+          "longitud": "-77.022487",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Parque José Luis Bustamante y Rivero"
+        },
+        {
+          "latitud": "-12.105787",
+          "longitud": "-77.016370",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Guardia Civil con calle Ricardo Angulo"
+        },
+        {
+          "latitud": "-12.103765",
+          "longitud": "-77.011346",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Parque Sur con Av. Gálvez Barrenechea"
+        },
+        {
+          "latitud": "-12.092078",
+          "longitud": "-77.009907",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Calle 6 con calle Valmore Roncalla"
+        }
+      ],
+
+
+      "tips": [{
+        "titulo": " ",
+        "descripcion": " "
+      }]
+    },
+
+
+
+
+    {
+      "tipos": "plastico",
+      "lugares_acopio": [{
+          "latitud": "-12.104675",
+          "longitud": "-77.059200",
+          "name": "",
+          "horario": "",
+          "direccion": "Exparque La Pera"
+        },
+        {
+          "latitud": "-12.097339",
+          "longitud": "-77.055803",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Salaverry cdra. 30"
+        },
+        {
+          "latitud": "-12.106447",
+          "longitud": "-77.051928",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. PAul Harris cdra. 1"
+        },
+        {
+          "latitud": "-12.106647",
+          "longitud": "-77.048303",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Residencial Santa Cruz"
+        },
+        {
+          "latitud": "-12.101340",
+          "longitud": "-77.033306",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Parque Santa Rosa"
+        },
+        {
+          "latitud": "-12.092417",
+          "longitud": "-77.032174",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Javier Prado con Av. Petit Thouars"
+        },
+        {
+          "latitud": "-12.093458",
+          "longitud": "-77.025914",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Parque Cáceres"
+        },
+        {
+          "latitud": "-12.099749",
+          "longitud": "-77.022487",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Parque José Luis Bustamante y Rivero"
+        },
+        {
+          "latitud": "-12.105787",
+          "longitud": "-77.016370",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Guardia Civil con calle Ricardo Angulo"
+        },
+        {
+          "latitud": "-12.103765",
+          "longitud": "-77.011346",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Parque Sur con Av. Gálvez Barrenechea"
+        },
+        {
+          "latitud": "-12.092078",
+          "longitud": "-77.009907",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Calle 6 con calle Valmore Roncalla"
+        }
+      ],
+
+
+      "tips": [{
+        "titulo": " ",
+        "descripcion": " "
+      }]
+    },
+
+    {
+      "tipos": "vidrio",
+      "lugares_acopio": [{
+          "latitud": "-12.104675",
+          "longitud": "-77.059200",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Exparque La Pera"
+        },
+        {
+          "latitud": "-12.097339",
+          "longitud": "-77.055803",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Salaverry cdra. 30"
+        },
+        {
+          "latitud": "-12.106447",
+          "longitud": "-77.051928",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. PAul Harris cdra. 1"
+        },
+        {
+          "latitud": "-12.106647",
+          "longitud": "-77.048303",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Residencial Santa Cruz"
+        },
+        {
+          "latitud": "-12.101340",
+          "longitud": "-77.033306",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Parque Santa Rosa"
+        },
+        {
+          "latitud": "-12.092417",
+          "longitud": "-77.032174",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Javier Prado con Av. Petit Thouars"
+        },
+        {
+          "latitud": "-12.093458",
+          "longitud": "-77.025914",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Parque Cáceres"
+        },
+        {
+          "latitud": "-12.099749",
+          "longitud": "-77.022487",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Parque José Luis Bustamante y Rivero"
+        },
+        {
+          "latitud": "-12.105787",
+          "longitud": "-77.016370",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Guardia Civil con calle Ricardo Angulo"
+        },
+        {
+          "latitud": "-12.103765",
+          "longitud": "-77.011346",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. Parque Sur con Av. Gálvez Barrenechea"
+        },
+        {
+          "latitud": "-12.092078",
+          "longitud": "-77.009907",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Calle 6 con calle Valmore Roncalla"
+        }
+      ],
+
+
+      "tips": [{
+        "titulo": " ",
+        "descripcion": " "
+      }]
+    },
+
+    {
+      "tipos": "RAEE",
+      "lugares_acopio": [{
+          "latitud": "-12.104675",
+          "longitud": "-77.059200",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Exparque La Pera"
+        },
+        {
+          "latitud": "-12.097339",
+          "longitud": "-77.055803",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Salaverry cdra. 30"
+        },
+        {
+          "latitud": "-12.106447",
+          "longitud": "-77.051928",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. PAul Harris cdra. 1"
+        }
+      ],
+
+
+      "tips": [{
+        "titulo": " ",
+        "descripcion": " "
+      }]
+    },
+
+    {
+      "tipos": "Metales",
+      "lugares_acopio": [{
+          "latitud": "-12.104675",
+          "longitud": "-77.059200",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Exparque La Pera"
+        },
+        {
+          "latitud": "-12.097339",
+          "longitud": "-77.055803",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Salaverry cdra. 30"
+        },
+        {
+          "latitud": "-12.106447",
+          "longitud": "-77.051928",
+          "name": "Contenedor",
+          "horario": "",
+          "direccion": "Av. PAul Harris cdra. 1"
+        }
+      ],
+      "tips": [{
+        "titulo": " ",
+        "descripcion": " "
+      }]
+    }
+  ]
+}

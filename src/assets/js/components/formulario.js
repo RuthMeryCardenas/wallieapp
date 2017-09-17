@@ -7,22 +7,22 @@ const FormAcopio = (update) => {
       '<div class="row">'+
       '  <div class="input-field col s10">'+
         '  <i class="material-icons prefix">account_circle</i>'+
-        '  <input id="icon_prefix" type="text" class="validate" required>'+
+        '  <input id="icon_prefix" type="text" class="validate">'+
         '  <label for="icon_prefix">Nombres y Apellidos</label>'+
       '  </div>'+
       '  <div class="input-field col s10">'+
         '  <i class="material-icons prefix">phone</i>'+
-        '  <input id="icon_telephone" type="number"  maxlength="999999999"  class="validate" required>'+
+        '  <input id="icon_telephone" type="number"  maxlength="999999999"  class="validate">'+
         '  <label for="icon_telephone">Celular</label>'+
         '</div>'+
         '<div class="input-field col s10">'+
           '  <i class="material-icons prefix">drafts</i>'+
-          '  <input id="email" type="email" class="validate" required>'+
+          '  <input id="email" type="email" class="validate">'+
           '  <label for="email" data-error="wrong" data-success="right">Email</label>'+
         '</div>'+
         '<div class="input-field col s10">'+
           '  <i class="material-icons prefix">location_city</i>'+
-          '  <input id="icon_location_city" type="tel" class="validate" required>'+
+          '  <input id="icon_location_city" type="tel" class="validate">'+
           '  <label for="icon_location_city">Ubicación</label>'+
         '</div>'+
         '<div class="col s10"><h6>Horario de Recepción</h6></div>'+
@@ -65,7 +65,7 @@ const FormAcopio = (update) => {
     '  </div>'+
   '  </form>'+
   '</div>');
-  const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>')
+  const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>');
   form.append(btn_send);
   cont_form.append(form);
 
@@ -86,7 +86,8 @@ const FormAcopio = (update) => {
       autoclose: false, // automatic close timepicker
       ampmclickable: true, // make AM PM clickable
       aftershow: function(){} //Function for after opening timepicker
-    });s
+    });
   });
+
   return cont_form;
 };

@@ -12,9 +12,8 @@ const locationDetail = (updated) => {
 
     icon.on("click", (e) => {
         e.preventDefault();
-        
+
     });
 
     return parent;
-
 }

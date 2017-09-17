@@ -58,9 +58,9 @@ gulp.task('sass', () => {
 gulp.task('js', () => {
   gulp.src(sources.rootJS)
     .pipe(plumber())
-    .pipe(to5())
+    // .pipe(to5())
     .pipe(concat("app.js"))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest(config.dist + paths.assets + "js"))
     .pipe(browserSync.stream());
 });
