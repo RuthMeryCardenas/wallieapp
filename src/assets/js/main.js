@@ -1,27 +1,33 @@
-'use strict';
+"use strict";
+
+console.log("hola");
+
 const root = $(".root");
 const render = (root) => {
     root.empty();
     const wrapper = $('<div class="wrapper"></div>');
 
     switch (state.pagina) {
+        case null:
+            wrapper.append(Home(updated));
+            break;
         case 1:
-            wrapper.append(DetailBrand(updated));
+            wrapper.append(Recicla(updated));
             break;
         case 2:
-            wrapper.append(DetailType(updated));
+            wrapper.append(MapaRecicla(updated));
             break;
         case 3:
-            wrapper.append(DetailSubType(updated));
+            wrapper.append(RutaRecicla(updated));
             break;
         case 4:
-            wrapper.append(DetailProduct(updated));
+            wrapper.append(FormAcopio(updated));
             break;
         case 5:
-            wrapper.append(Formulario(updated));
+            wrapper.append(SuccesAcopio(updated));
             break;
         case 6:
-            wrapper.append(Empresa(updated));
+            wrapper.append(TipsR(updated));
             break;
         case 7:
             wrapper.append(Contacto(updated));
@@ -43,6 +49,6 @@ const state = {
 $(_ => {
 
     const root = $(".root");
-    state.pagina=5;
+    render(root);
 
 });
