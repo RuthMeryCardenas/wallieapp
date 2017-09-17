@@ -1,11 +1,13 @@
-var gulp        = require('gulp');
-// var concat      = require('gulp-concat');
-var sass        = require('gulp-sass');
-var browserify  = require('gulp-browserify');
-var rename      = require('gulp-rename');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var browserify = require('gulp-browserify');
+var rename = require('gulp-rename');
+var plumber = require('gulp-plumber');
+var to5 = require('gulp-6to5');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 var browserSync = require('browser-sync').create();
-// var uglify = require('gulp-uglify');
-// var toEs6 = require('gulp-6to5');
+
 var nodemon     = require('gulp-nodemon');
 
 var config = {
@@ -14,13 +16,13 @@ var config = {
 };
 
 var paths = {
-    assets:"assets/",
-    html:"**/*.html",
-    img: "img/**/*",
-    js: "js/**/*.js",
-    sass:"scss/**/*.scss",
-    mainSass:"scss/main.scss",
-    mainJS: "js/**/*.js"
+    assets: 'assets/',
+    html: '**/*.html',
+    img: 'img/**',
+    js: 'js/**/*.js',
+    sass:'scss/**/*.scss',
+    mainSass:'scss/main.scss',
+    mainJS: 'js/**/*.js'
 };
 
 var sources = {
@@ -46,19 +48,30 @@ gulp.task('img', () => {
 gulp.task('sass', () => {
     gulp.src(sources.rootSass)
     .pipe(sass({
-        outputStyle:"compressed"
+      outStyle: "compressed"
     }).on("error",sass.logError))
     .pipe(gulp.dest(config.dist + paths.assets + "css"))
     .pipe(browserSync.stream());
 });
 
+
 gulp.task('js', () => {
-     gulp.src(sources.rootJS)
-        .pipe(browserify())
-        .pipe(rename('app.js'))
-        .pipe(gulp.dest(config.dist + paths.assets +"js"))
-        .pipe(browserSync.stream());
+  gulp.src(sources.rootJS)
+    .pipe(plumber())
+    .pipe(to5())
+    .pipe(concat("app.js"))
+    .pipe(uglify())
+    .pipe(gulp.dest(config.dist + paths.assets + "js"))
+    .pipe(browserSync.stream());
 });
+
+// gulp.task('js', () => {
+//      gulp.src(sources.rootJS)
+//         .pipe(browserify())
+//         .pipe(rename('app.js'))
+//         .pipe(gulp.dest(config.dist + paths.assets +"js"))
+//         .pipe(browserSync.stream());
+// });
 
 
 
@@ -72,15 +85,7 @@ gulp.task("img-watch", ["img"], function (done) {
   done();
 });
 
-// gulp.task("js-watch", ["js"], function (done) {
-//   browserSync.reload();
-//   done();
-// });
 
-// gulp.task("sass-watch", ["sass"], function (done) {
-//   browserSync.reload();
-//   done();
-// });
 
 
 gulp.task('nodemon', function(cb){
