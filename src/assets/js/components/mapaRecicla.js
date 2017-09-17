@@ -2,8 +2,8 @@
 
 const MapaRecicla = (updated) => {
 
-    const parent = $('<div class=""></div>');
-    const mapa = $('<div id="mapa"></div>');
+    const parent = $('<div class="row"></div>');
+    const mapa = $('<div id="mapa" class="col s10"></div>');
     const detail = $('<div class=""></div>');
 
     parent.append(mapa);

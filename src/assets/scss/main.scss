@@ -14,12 +14,73 @@ body {
     background-position: center;
     margin-top: 40px;
 }
+.fondo{
+  width: 100%;
+  background-image: url("../img/fondo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
 .actions {
     margin-top: 30px;
 }
+div.recicla{
+  margin-top: 20px;
+  a{
+      background-color: #17311F;
+      font-family: 'Josefin Sans', sans-serif;
+      border: 1px solid #D1EAAF;
+      border-radius: 16px;
+      font-size: 1.1rem;
+      i{
+        margin-right: 10px;
+      }
+  }
+}
+.bg_green_ligth{
+  background-color: #D1EAAF;
+  border: 1px solid #D1EAAF;
+  border-radius: 16px;
+  height: 45vh;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg_green_ligth1{
+  background-color: #D1EAAF;
+  border: 1px solid #D1EAAF;
+  border-radius: 16px;
+  a{
+    background-color: #17311F;
+    font-family: 'Josefin Sans', sans-serif;
+    border: 1px solid #D1EAAF;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    margin:10px 0;
+  }
+}
+.cont_optciones{
+  div{
+    background-color: #17311F;
+    border: 1px solid #D1EAAF;
+    border-radius: 16px;
+    margin-top: 30px;
+    h6{
+      display: inline-block;
+      color:#F3F6DD ;
+    }
+    a{
+      margin-right: 15px;
+      color:#F3F6DD ;
+    }
+  }
+}
 #mapa {
-    height: 400px;
+    height: 300px;
     width: 100%;
+    border: 6px solid #D1EAAF;
 }
 .root{
   width: 100%;
@@ -30,4 +91,23 @@ body {
 }
 .bg_yellow{
   background-color: #CED071;
+}
+.cont_detail{
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #D1EAAF ;
+  border: 1px solid #17311F;
+  border-radius: 16px;
+  margin: 10px 0;
+  margin-top: 20px;
+  div.name_acopio{
+   display: inline-block;
+   margin: 5px 0;
+  }
+  div.ruta_acopio{
+    display: inline-block;
+    color: #F3F6DD;
+    background-color: #17311F;
+    border: 1px solid #D1EAAF;
+    border-radius: 16px;
+  }
 }

@@ -3,10 +3,10 @@
 
 const Home = (updated) => {
 
-    const parent = $('<div class="center-align"></div>');
-    const btnRecicle = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions">Recicla</a></div><br>');
-    const btnPoint = $('<div><a class="waves-effect waves-light btn-large actions">Cargar Nuevo Punto</a></div><br>');
-    const btnTips = $('<div><a class="waves-effect waves-light btn-large actions">Tips</a></div><br>');
+    const parent = $('<div class="center-align fondo"></div>');
+    const btnRecicle = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-recycle"></i>Recicla</a></div><br>');
+    const btnPoint = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-map-pin"></i>Cargar Nuevo Punto</a></div><br>');
+    const btnTips = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-lightbulb"></i>Tips</a></div><br>');
 
     parent.append(btnRecicle);
     parent.append(btnPoint);

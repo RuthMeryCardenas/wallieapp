@@ -76,6 +76,15 @@ $(_ => {
 
 "use strict";
 
+const filterByMaterial = (key) => {
+  console.log(state.wallie.wallie);
+    return state.wallie.wallie.filter( (item) => {
+                return item.tipos.toLowerCase() == key;
+            });
+}
+
+"use strict";
+
 const TipDetail = (updated) => {
 
     const parent = $('<div class="container"></div>');
@@ -205,10 +214,10 @@ const int_s3 =$('<div class="input-field col s12">'+
 
 const Home = (updated) => {
 
-    const parent = $('<div class="center-align"></div>');
-    const btnRecicle = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions">Recicla</a></div><br>');
-    const btnPoint = $('<div><a class="waves-effect waves-light btn-large actions">Cargar Nuevo Punto</a></div><br>');
-    const btnTips = $('<div><a class="waves-effect waves-light btn-large actions">Tips</a></div><br>');
+    const parent = $('<div class="center-align fondo"></div>');
+    const btnRecicle = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-recycle"></i>Recicla</a></div><br>');
+    const btnPoint = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-map-pin"></i>Cargar Nuevo Punto</a></div><br>');
+    const btnTips = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-lightbulb"></i>Tips</a></div><br>');
 
     parent.append(btnRecicle);
     parent.append(btnPoint);
@@ -338,12 +347,15 @@ function calculateAndDisplayRoute(pos, map) {
 
 const locationDetail = (location, updated) => {
 
-    const parent = $('<div class="" data-lugar = ""></div>');
-    const name = $('<span class="">'+ location.name + '</span>');
-    const icon = $('<span class = "ruta">trazar ruta</span>');
+    const parent = $('<div class="cont_detail" data-lugar = ""></div>');
+    const name = $('<div class="name_acopio"><i class="icon-feather "></i><span class="">'+ location.name + '</span></div>');
+    const cont_icon =$('<div class="ruta_acopio"><i class="icon-map"></i></div>');
+    const icon = $('<span class ="ruta">Trazar ruta</span>');
+    cont_icon.append(icon);
+
 
     parent.append(name);
-    parent.append(icon);
+    parent.append(cont_icon);
 
     icon.on("click", (e) => {
         e.preventDefault();
@@ -359,8 +371,8 @@ const locationDetail = (location, updated) => {
 
 const MapaRecicla = (updated) => {
 
-    const parent = $('<div class=""></div>');
-    const mapa = $('<div id="mapa"></div>');
+    const parent = $('<div class="row"></div>');
+    const mapa = $('<div id="mapa" class="col s10"></div>');
     const detail = $('<div class=""></div>');
 
     parent.append(mapa);
@@ -378,26 +390,26 @@ const MapaRecicla = (updated) => {
 
 const Recicla = (updated) => {
 
-    const tipos = [ { name: "Plastico", img: "" },
-                    { name: "Vidrio", img: "" },
-                    { name: "RAEE", img: "" },
-                    { name: "Aceite", img: "" },
-                    { name: "Cartón y Papel", img: "" },
-                    { name: "Pilas", img: "" }];
+    const tipos = [ { name: "Plastico", img: "icon-bowling-pins" },
+                    { name: "Vidrio", img: "icon-wine" },
+                    { name: "RAEE", img: "icon-megaphone" },
+                    { name: "Aceite", img: "icon-caution" },
+                    { name: "Cartón y Papel", img: "icon-box2" },
+                    { name: "Pilas", img: "icon-battery2" }];
 
     const parent = $('<div class="container"></div>');
-    const row = $('<div class="row"></div>');
-    const divTitle = $('<div class="center-align col s12">Recicla</div>');
-    const container = $('<div class="center-align col s12"></div>');
-    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+    const row = $('<div class="row bg_green_ligth"></div>');
+    const divTitle = $('<div class="center-align col s12 recicla">Recicla</div>');
+    const container = $('<div class="center-align col s12 cont_optciones"></div>');
+    const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
 
     tipos.forEach(function(type){
         const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
-        const img = $('<a class=""><span class=""></span></a>');
-        const h5 = $('<h5 class="morado">'+ type.name + '</h5>');
+        const img = $('<a class=""><i class="'+type.img+'"></i></a>');
+        const h5 = $('<h6 class="morado">'+ type.name + '</h6>');
 
-        divContent.append(h5);
         divContent.append(img);
+        divContent.append(h5);
         container.append(divContent);
 
         divContent.on("click", (e) => {
@@ -511,12 +523,3 @@ const TipsR = (updated) => {
     return parent;
 }
 
-
-"use strict";
-
-const filterByMaterial = (key) => {
-  console.log(state.wallie.wallie);
-    return state.wallie.wallie.filter( (item) => {
-                return item.tipos.toLowerCase() == key;
-            });
-}

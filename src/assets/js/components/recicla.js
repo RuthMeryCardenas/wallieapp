@@ -2,26 +2,26 @@
 
 const Recicla = (updated) => {
 
-    const tipos = [ { name: "Plastico", img: "" },
-                    { name: "Vidrio", img: "" },
-                    { name: "RAEE", img: "" },
-                    { name: "Aceite", img: "" },
-                    { name: "Cartón y Papel", img: "" },
-                    { name: "Pilas", img: "" }];
+    const tipos = [ { name: "Plastico", img: "icon-bowling-pins" },
+                    { name: "Vidrio", img: "icon-wine" },
+                    { name: "RAEE", img: "icon-megaphone" },
+                    { name: "Aceite", img: "icon-caution" },
+                    { name: "Cartón y Papel", img: "icon-box2" },
+                    { name: "Pilas", img: "icon-battery2" }];
 
     const parent = $('<div class="container"></div>');
-    const row = $('<div class="row"></div>');
-    const divTitle = $('<div class="center-align col s12">Recicla</div>');
-    const container = $('<div class="center-align col s12"></div>');
-    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+    const row = $('<div class="row bg_green_ligth"></div>');
+    const divTitle = $('<div class="center-align col s12 recicla">Recicla</div>');
+    const container = $('<div class="center-align col s12 cont_optciones"></div>');
+    const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
 
     tipos.forEach(function(type){
         const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
-        const img = $('<a class=""><span class=""></span></a>');
-        const h5 = $('<h5 class="morado">'+ type.name + '</h5>');
+        const img = $('<a class=""><i class="'+type.img+'"></i></a>');
+        const h5 = $('<h6 class="morado">'+ type.name + '</h6>');
 
-        divContent.append(h5);
         divContent.append(img);
+        divContent.append(h5);
         container.append(divContent);
 
         divContent.on("click", (e) => {
