@@ -78,15 +78,6 @@ $(_ => {
 
 "use strict";
 
-const filterByMaterial = (key) => {
-  console.log(state.wallie.wallie);
-    return state.wallie.wallie.filter( (item) => {
-                return item.tipos.toLowerCase() == key;
-            });
-}
-
-"use strict";
-
 const TipDetail = (updated) => {
 
     const parent = $('<div class="container"></div>');
@@ -136,7 +127,7 @@ const FormAcopio = (update) => {
 
   const cont_form =$('<section class="cont"></section>');
   const row_1 =$('<div class="row"></div>');
-  const form  =$('<form class="col s12"></div>');
+  const form  =$('<form class="col s10 form_new push-s1"></div>');
   const row_2 =$('<div class="row"></div>');
         row_1.append(form);
         form.append(row_2);
@@ -162,7 +153,7 @@ const FormAcopio = (update) => {
   int_4.append(int_41,int_42,int_43);
 
   const int_5 =$('<div class="col s10"><h6>Horario de Recepción</h6></div>'+
-        '<div class="col s10">'+
+        '<div class="col s12">'+
         '<p class="inline"><input type="checkbox" class="filled-in dataMust" id="dia1"/><label for="dia1">L</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia2" /><label for="dia2">M</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia3" /><label for="dia3">Mi</label></p>'+
@@ -199,11 +190,13 @@ const int_s3 =$('<div class="input-field col s12">'+
             '<label for="textarea1">Observación</label>'+
          '</div>');
  row_2.append(int_1,int_2,int_3,int_4,int_5,int_6,int_7,int_8,int_9,int_s1,int_s2,int_s3);
+
   const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>');
-  const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
-  
-  form.append(btnReturn);
+  const btnReturn = $('<div class=""><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+
   form.append(btn_send);
+  row_1.append(btnReturn);
+
   cont_form.append(row_1);
 
 
@@ -220,7 +213,7 @@ const int_s3 =$('<div class="input-field col s12">'+
     updated();
   });
 
-  
+
   return cont_form;
 };
 function timepicker () {
@@ -236,8 +229,6 @@ function timepicker () {
     aftershow: function(){} //Function for after opening timepicker
   });
 };
-
-
 
 "use strict";
 
@@ -518,26 +509,26 @@ const SuccesAcopio = (update) => {
 
 const TipsR = (updated) => {
 
-    const tiposT = [ { name: "Plastico", img: "" },
-                    { name: "Vidrio", img: "" },
-                    { name: "RAEE", img: "" },
-                    { name: "Aceite", img: "" },
-                    { name: "Cartón y Papel", img: "" },
-                    { name: "Pilas", img: "" }];
+    const tiposT = [ { name: "Plastico", img: "icon-bowling-pins" },
+                    { name: "Vidrio", img: "icon-wine" },
+                    { name: "RAEE", img: "icon-megaphone" },
+                    { name: "Aceite", img: "icon-caution" },
+                    { name: "Cartón y Papel", img: "icon-box2" },
+                    { name: "Pilas", img: "icon-battery2" }];
 
-    const parent = $('<div class="container"></div>');
-    const row = $('<div class="row"><div>');
-    const divTitle = $('<div class="center-align col s12">Recicla</div>');
-    const container = $('<div class="center-align col s12"></div>');
-    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+                    const parent = $('<div class="container"></div>');
+                    const row = $('<div class="row bg_green_ligth"></div>');
+                    const divTitle = $('<div class="center-align col s12 recicla"><h5>Tips</h5></div>');
+                    const container = $('<div class="center-align col s12 cont_optciones"></div>');
+                    const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
 
     tiposT.forEach(function(type){
-        const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
-        const img = $('<a class=""><span class=""></span></a>');
-        const h5 = $('<h5 class="morado">'+ type.name + '</h5>');
+      const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
+      const img = $('<a class=""><i class="'+type.img+'"></i></a>');
+      const h5 = $('<h6 class="morado">'+ type.name + '</h6>');
 
-        divContent.append(h5);
         divContent.append(img);
+        divContent.append(h5);
         container.append(divContent);
 
         divContent.on("click", (e) => {
@@ -566,3 +557,12 @@ const TipsR = (updated) => {
     return parent;
 }
 
+
+"use strict";
+
+const filterByMaterial = (key) => {
+  console.log(state.wallie.wallie);
+    return state.wallie.wallie.filter( (item) => {
+                return item.tipos.toLowerCase() == key;
+            });
+}

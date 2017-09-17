@@ -3,7 +3,7 @@ const FormAcopio = (update) => {
 
   const cont_form =$('<section class="cont"></section>');
   const row_1 =$('<div class="row"></div>');
-  const form  =$('<form class="col s12"></div>');
+  const form  =$('<form class="col s10 form_new push-s1"></div>');
   const row_2 =$('<div class="row"></div>');
         row_1.append(form);
         form.append(row_2);
@@ -29,7 +29,7 @@ const FormAcopio = (update) => {
   int_4.append(int_41,int_42,int_43);
 
   const int_5 =$('<div class="col s10"><h6>Horario de Recepción</h6></div>'+
-        '<div class="col s10">'+
+        '<div class="col s12">'+
         '<p class="inline"><input type="checkbox" class="filled-in dataMust" id="dia1"/><label for="dia1">L</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia2" /><label for="dia2">M</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia3" /><label for="dia3">Mi</label></p>'+
@@ -66,11 +66,13 @@ const int_s3 =$('<div class="input-field col s12">'+
             '<label for="textarea1">Observación</label>'+
          '</div>');
  row_2.append(int_1,int_2,int_3,int_4,int_5,int_6,int_7,int_8,int_9,int_s1,int_s2,int_s3);
+
   const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>');
-  const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
-  
-  form.append(btnReturn);
+  const btnReturn = $('<div class=""><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+
   form.append(btn_send);
+  row_1.append(btnReturn);
+
   cont_form.append(row_1);
 
 
@@ -87,7 +89,7 @@ const int_s3 =$('<div class="input-field col s12">'+
     updated();
   });
 
-  
+
   return cont_form;
 };
 function timepicker () {
@@ -103,5 +105,3 @@ function timepicker () {
     aftershow: function(){} //Function for after opening timepicker
   });
 };
-
-

@@ -100,5 +100,56 @@ div.recicla {
     color: #F3F6DD;
     background-color: #17311F;
     border: 1px solid #D1EAAF;
-    border-radius: 16px;
-  }
+    border-radius: 16px; }
+
+.back a {
+  min-height: 50px;
+  margin-top: 20px; }
+
+#icon_prefix {
+  text-transform: capitalize; }
+
+.form_new {
+  border: 3px solid #D1EAAF; }
+  .form_new i {
+    color: #D1EAAF; }
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #17311F;
+  -webkit-box-shadow: 0 1px 0 0 #17311F;
+  box-shadow: 0 1px 0 0 #17311F; }
+
+input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-default):focus:not([readonly]) + label, input[type=password]:not(.browser-default):focus:not([readonly]) + label, input[type=email]:not(.browser-default):focus:not([readonly]) + label, input[type=url]:not(.browser-default):focus:not([readonly]) + label, input[type=time]:not(.browser-default):focus:not([readonly]) + label, input[type=date]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, input[type=tel]:not(.browser-default):focus:not([readonly]) + label, input[type=number]:not(.browser-default):focus:not([readonly]) + label, input[type=search]:not(.browser-default):focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #17311F; }
+
+[type="checkbox"].filled-in:checked + label:after {
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #D1EAAF;
+  background-color: #D1EAAF;
+  z-index: 0; }
+
+.picker__date-display {
+  text-align: left;
+  background-color: #17311F;
+  color: #fff;
+  padding: 18px;
+  font-weight: 300; }
+
+.picker__close, .picker__today, .picker__clear {
+  font-size: 1.1rem;
+  padding: 0 1rem;
+  color: #17311F; }
+
+.btn, .btn-large {
+  border: 1px solid #D1EAAF;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #F3F6DD;
+  background-color: #17311F;
+  text-align: center;
+  letter-spacing: .5px;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+  cursor: pointer; }
