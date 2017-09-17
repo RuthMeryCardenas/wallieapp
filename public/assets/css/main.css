@@ -30,3 +30,7 @@ body {
 
 .bg_yellow {
   background-color: #CED071; }
+
+.back a {
+  min-height: 50px;
+  margin-top: 20px; }

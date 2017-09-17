@@ -39,7 +39,9 @@ const render = (root) => {
         initMap();
     }
     if(state.pagina == 4){
-        initAutocomplete()
+        var input = document.getElementById("ubicacion");
+        new google.maps.places.Autocomplete(input);
+        timepicker();
     }
 
 }
