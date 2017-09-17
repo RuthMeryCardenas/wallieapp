@@ -28,14 +28,20 @@ const render = (root) => {
         case 6:
             wrapper.append(TipsR(updated));
             break;
+<<<<<<< HEAD
         case 7:
             wrapper.append(TipDetail(updated));
             break;
     };
+=======
+        
+    }
+>>>>>>> 21b7e2b4d620a6a7da59b046adb0c48768b264e6
 
     root.append(wrapper);
-    if(state.pagina == 2){
+    if(state.pagina == 2 || state.pagina == 3){
         initMap();
+        
     }
 
 }
@@ -59,15 +65,15 @@ $(_ => {
   };
   firebase.initializeApp(config);
   var database = firebase.database();
-  database.ref().on("value", function(snap){
+    database.ref().on("value", function(snap){
 
-    state.wallie = snap.val();
-    console.log(state.wallie);
+        state.wallie = snap.val();
+        console.log(state.wallie);
 
-    const root = $(".root");
-    render(root);
+        const root = $(".root");
+        render(root);
 
-});
+    });
 });
 
 "use strict";
@@ -231,7 +237,7 @@ const Home = (updated) => {
 
 'use strict';
 
-function initMap (locations) {
+function initMap () {
     console.log("hola");
     var uluru = { lat: -25.363, lng: 131.044 };
     var map = new google.maps.Map(document.getElementById("mapa"), {
@@ -256,18 +262,35 @@ function initMap (locations) {
                 position: pos,
                 map: map
             });
-            
-            // var markers = state.locations.map(function (location, i) {
-            //     return new google.maps.Marker({
-            //         position: location,
-            //         map: map
-            //     });
-            // });
 
-            // const directionsDisplay = new google.maps.DirectionsRenderer;
-            // const directionsService = new google.maps.DirectionsService;
-            // directionsDisplay.setMap(map);
-            // calculateAndDisplayRoute(directionsService, directionsDisplay, pos);
+            
+            if(state.pagina == 2){
+                var markers = state.locations[0].lugares_acopio.map(function (location) {
+                    var contentString = '<div id = "content"><p>'+location.name+'</p><p>'+location.direccion+'</p><p>'+location.horario+'</p></div>';
+                    var ruta = '<p class="ruta">Trazar Ruta</p>';
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString + ruta
+                    });
+
+                    const newMarker = new google.maps.Marker({
+                        position: {lat: location.latitud, lng: location.longitud},
+                        map:map
+                    })
+                    newMarker.addListener("click", function(){
+                        infowindow.open(map, newMarker);
+
+                    });
+                   
+                    return newMarker;
+                });
+
+
+            }else {
+                marker.setMap(null);
+                calculateAndDisplayRoute(pos, map);
+
+            }
+            
         });
     } else {
         // Browser doesn't support Geolocation
@@ -284,19 +307,20 @@ function handleLocationError(browserHasGeolocation, map, pos) {
         'Error: Your browser doesn\'t support geolocation.');
 }
 
-function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
+function calculateAndDisplayRoute(pos, map) {
+
      const directionsDisplay = new google.maps.DirectionsRenderer;
      const directionsService = new google.maps.DirectionsService;
-     directionsDisplay.setMap(map);
+    directionsDisplay.setMap(map);
     directionsService.route({
         origin: pos,
-        destination: { lat: state.selectedStation.lat, lng: state.selectedStation.long },
+        destination: { lat: state.selectedLocation.latitud, lng: state.selectedLocation.longitud },
         travelMode: 'DRIVING'
     }, function (response, status) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
             const distancia = ((response.routes[0].legs[0].distance.text));
-            $('#km').text(distancia);
+            // $('#km').text(distancia);
         } else {
             window.alert('Directions request failed due to ' + status);
         }
@@ -307,18 +331,20 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
 "use strict";
 
 
-const locationDetail = (updated) => {
+const locationDetail = (location, updated) => {
 
-    const parent = $('<div class=""></div>');
-    const name = $('<span class=""></span>');
-    const icon = $('<span class = "ruta"></span>');
+    const parent = $('<div class="" data-lugar = ""></div>');
+    const name = $('<span class="">'+ location.name + '</span>');
+    const icon = $('<span class = "ruta">trazar ruta</span>');
 
     parent.append(name);
     parent.append(icon);
 
     icon.on("click", (e) => {
         e.preventDefault();
-
+        state.selectedLocation = location;
+        state.pagina = 3;
+        updated();
     });
 
     return parent;
@@ -335,9 +361,9 @@ const MapaRecicla = (updated) => {
     parent.append(mapa);
     parent.append(detail);
 
-    // state.locations.map(function (location) {
-    //     locationDetail(detail, location);
-    // });
+    state.locations[0].lugares_acopio.map(function (location) {
+        parent.append(locationDetail(location, updated));
+    });
 
     return parent;
 
@@ -371,8 +397,9 @@ const Recicla = (updated) => {
 
         divContent.on("click", (e) => {
             e.preventDefault();
-            state.material = $(e.currentTarget).data("id");
-            // state.locations = filterByMaterial(state.material);
+            state.material = $(e.currentTarget).data("id").toLowerCase();
+            state.locations = filterByMaterial(state.material);
+            console.log(state.locations);
             state.pagina = 2;
             updated();
         });
@@ -395,6 +422,22 @@ const Recicla = (updated) => {
 
 };
 
+"use strict";
+
+const RutaRecicla = (updated) => {
+
+    const parent = $('<div class=""></div>');
+    const mapa = $('<div id="mapa"></div>');
+    const detail = $('<div class=""></div>');
+
+    parent.append(mapa);
+    parent.append(detail);
+
+    
+
+    return parent;
+
+}
 'use strict';
 const SuccesAcopio = (update) => {
 
@@ -466,6 +509,8 @@ const TipsR = (updated) => {
 
 "use strict";
 
-const filerByMaterial = (key) => {
-    
+const filterByMaterial = (key) => {
+    return state.wallie.wallie.filter( (item) => {
+                return item.tipos.toLowerCase() == key; 
+            });
 }

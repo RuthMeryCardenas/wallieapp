@@ -26,8 +26,9 @@ const Recicla = (updated) => {
 
         divContent.on("click", (e) => {
             e.preventDefault();
-            state.material = $(e.currentTarget).data("id");
-            // state.locations = filterByMaterial(state.material);
+            state.material = $(e.currentTarget).data("id").toLowerCase();
+            state.locations = filterByMaterial(state.material);
+            console.log(state.locations);
             state.pagina = 2;
             updated();
         });

@@ -28,14 +28,20 @@ const render = (root) => {
         case 6:
             wrapper.append(TipsR(updated));
             break;
+<<<<<<< HEAD
         case 7:
             wrapper.append(TipDetail(updated));
             break;
     };
+=======
+        
+    }
+>>>>>>> 21b7e2b4d620a6a7da59b046adb0c48768b264e6
 
     root.append(wrapper);
-    if(state.pagina == 2){
+    if(state.pagina == 2 || state.pagina == 3){
         initMap();
+        
     }
 
 }
@@ -59,13 +65,13 @@ $(_ => {
   };
   firebase.initializeApp(config);
   var database = firebase.database();
-  database.ref().on("value", function(snap){
+    database.ref().on("value", function(snap){
 
-    state.wallie = snap.val();
-    console.log(state.wallie);
+        state.wallie = snap.val();
+        console.log(state.wallie);
 
-    const root = $(".root");
-    render(root);
+        const root = $(".root");
+        render(root);
 
-});
+    });
 });
