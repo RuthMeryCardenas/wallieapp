@@ -29,9 +29,9 @@ const render = (root) => {
             wrapper.append(TipsR(updated));
             break;
         case 7:
-            wrapper.append(Contacto(updated));
+            wrapper.append(TipDetail(updated));
             break;
-    }
+    };
 
     root.append(wrapper);
     if(state.pagina == 2){

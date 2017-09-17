@@ -29,9 +29,9 @@ const render = (root) => {
             wrapper.append(TipsR(updated));
             break;
         case 7:
-            wrapper.append(Contacto(updated));
+            wrapper.append(TipDetail(updated));
             break;
-    }
+    };
 
     root.append(wrapper);
     if(state.pagina == 2){
@@ -69,6 +69,37 @@ $(_ => {
 
 });
 });
+
+"use strict";
+
+const TipDetail = (updated) => {
+
+    const parent = $('<div class="container"></div>');
+    const row = $('<div class="row"></div>');
+    const divTitle = $('<div class="center-align col s12"></div>');
+    const mjsTitle=$('<h4>'+ state.material+'</h4>');
+    const contMjs =$('<div class="center-align col s12">'+ state.material+'</div>');
+    divTitle.append(mjsTitle,contMjs);
+    const container = $('<div class="center-align col s12">2</div>');
+    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+
+
+
+    btnReturn.on("click", (e) => {
+        e.preventDefault();
+        state.pagina = null;
+        state.material = null;
+        state.locations = null;
+        updated();
+    })
+
+    row.append(divTitle);
+    row.append(container);
+    parent.append(row);
+    parent.append(btnReturn);
+
+    return parent;
+}
 
 'use strict';
 const FormAcopio = (update) => {
@@ -316,15 +347,15 @@ const MapaRecicla = (updated) => {
 
 const Recicla = (updated) => {
 
-    const tipos = [ { name: "Plastico", img: "" }, 
-                    { name: "Vidrio", img: "" }, 
-                    { name: "Ropa", img: "" }, 
-                    { name: "Aceite", img: "" }, 
-                    { name: "Cartón y Papel", img: "" }, 
+    const tipos = [ { name: "Plastico", img: "" },
+                    { name: "Vidrio", img: "" },
+                    { name: "RAEE", img: "" },
+                    { name: "Aceite", img: "" },
+                    { name: "Cartón y Papel", img: "" },
                     { name: "Pilas", img: "" }];
-                    
+
     const parent = $('<div class="container"></div>');
-    const row = $('<div class="row"><div>');
+    const row = $('<div class="row"></div>');
     const divTitle = $('<div class="center-align col s12">Recicla</div>');
     const container = $('<div class="center-align col s12"></div>');
     const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
@@ -343,7 +374,7 @@ const Recicla = (updated) => {
             state.material = $(e.currentTarget).data("id");
             // state.locations = filterByMaterial(state.material);
             state.pagina = 2;
-            updated(); 
+            updated();
         });
     });
     btnReturn.on("click", (e) => {
@@ -352,17 +383,18 @@ const Recicla = (updated) => {
         state.material = null;
         state.locations = null;
         updated();
-    })
+    });
 
-    row.append(divTitle);    
+    row.append(divTitle);
     row.append(container);
     parent.append(row);
     parent.append(btnReturn);
-    
+
 
     return parent;
 
-}
+};
+
 'use strict';
 const SuccesAcopio = (update) => {
 
@@ -380,6 +412,55 @@ const SuccesAcopio = (update) => {
        update();}, 5000);
 
     return divCont_end;
+}
+
+const TipsR = (updated) => {
+
+    const tiposT = [ { name: "Plastico", img: "" },
+                    { name: "Vidrio", img: "" },
+                    { name: "RAEE", img: "" },
+                    { name: "Aceite", img: "" },
+                    { name: "Cartón y Papel", img: "" },
+                    { name: "Pilas", img: "" }];
+
+    const parent = $('<div class="container"></div>');
+    const row = $('<div class="row"><div>');
+    const divTitle = $('<div class="center-align col s12">Recicla</div>');
+    const container = $('<div class="center-align col s12"></div>');
+    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+
+    tiposT.forEach(function(type){
+        const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
+        const img = $('<a class=""><span class=""></span></a>');
+        const h5 = $('<h5 class="morado">'+ type.name + '</h5>');
+
+        divContent.append(h5);
+        divContent.append(img);
+        container.append(divContent);
+
+        divContent.on("click", (e) => {
+            e.preventDefault();
+            state.material = $(e.currentTarget).data("id");
+            console.log(state.material);
+            // state.type = filterByMaterial(state.material);
+            state.pagina = 7;
+            updated();
+        });
+    });
+    btnReturn.on("click", (e) => {
+        e.preventDefault();
+        state.pagina = null;
+        state.material = null;
+        state.locations = null;
+        updated();
+    })
+
+    row.append(divTitle);
+    row.append(container);
+    parent.append(row);
+    parent.append(btnReturn);
+
+    return parent;
 }
 
 
