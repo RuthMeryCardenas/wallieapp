@@ -10,9 +10,9 @@ const MapaRecicla = (updated) => {
     parent.append(mapa);
     parent.append(detail);
 
-    state.locations.map(function (location) {
-        locationDetail(detail, location);
-    });
+    // state.locations.map(function (location) {
+    //     locationDetail(detail, location);
+    // });
         
     return parent;
     

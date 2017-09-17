@@ -29,9 +29,7 @@ const render = (root) => {
         case 6:
             wrapper.append(TipsR(updated));
             break;
-        case 7:
-            wrapper.append(Contacto(updated));
-            break;
+       
     }
 
     root.append(wrapper);

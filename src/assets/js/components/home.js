@@ -19,12 +19,12 @@ const Home = (updated) => {
     });
     btnPoint.on("click", function (e) {
         e.preventDefault();
-        state.page = 2;
+        state.pagina = 4;
         updated();
     });
     btnTips.on("click", function (e) {
         e.preventDefault();
-        state.page = 3;
+        state.pagina = 6;
         updated();
     });
 
