@@ -14,13 +14,13 @@ body {
     background-position: center;
     margin-top: 40px;
 }
-// .fondo{
-//   width: 100%;
-//   background-image: url("../img/fondo.png");
-//   background-repeat: no-repeat;
-//   background-size: contain;
-//   background-position: center;
-// }
+.fondo{
+  width: 100%;
+  background-image: url("../img/fondo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
 .actions {
     margin-top: 30px;
 }
@@ -52,6 +52,7 @@ div.recicla{
   background-color: #D1EAAF;
   border: 1px solid #D1EAAF;
   border-radius: 16px;
+  text-align: center;
   a{
     background-color: #17311F;
     font-family: 'Josefin Sans', sans-serif;
@@ -169,4 +170,9 @@ div.recicla{
 .img-responsive{
   width: 100%;
   height: auto;
+}
+h4{
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: capitalize;
+  text-align: center;
 }

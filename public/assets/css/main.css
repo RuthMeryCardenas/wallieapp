@@ -14,6 +14,13 @@ body {
   background-position: center;
   margin-top: 40px; }
 
+.fondo {
+  width: 100%;
+  background-image: url("../img/fondo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; }
+
 .actions {
   margin-top: 30px; }
 
@@ -42,7 +49,8 @@ div.recicla {
 .bg_green_ligth1 {
   background-color: #D1EAAF;
   border: 1px solid #D1EAAF;
-  border-radius: 16px; }
+  border-radius: 16px;
+  text-align: center; }
   .bg_green_ligth1 a {
     background-color: #17311F;
     font-family: 'Josefin Sans', sans-serif;
@@ -150,3 +158,8 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-d
 .img-responsive {
   width: 100%;
   height: auto; }
+
+h4 {
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: capitalize;
+  text-align: center; }

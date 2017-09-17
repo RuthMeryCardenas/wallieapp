@@ -264,7 +264,7 @@ function initMap () {
 
     var uluru = { lat: -25.363, lng: 131.044 };
     var map = new google.maps.Map(document.getElementById("mapa"), {
-        zoom: 4,
+        zoom: 16,
         center: uluru
     });
 
@@ -277,7 +277,7 @@ function initMap () {
             };
 
             const map = new google.maps.Map(document.getElementById("mapa"), {
-                zoom: 14,
+                zoom: 12,
                 center: pos
             });
 
@@ -378,10 +378,10 @@ const locationDetail = (location, updated) => {
 
 const MapaRecicla = (updated) => {
 
-    const parent = $('<div class="row"><h5>'+ state.material+'</h5></div>');
+    const parent = $('<div class="row"><h4>'+ state.material+'</h4></div>');
     const mapa = $('<div id="mapa" class="col s10"></div>');
     const detail = $('<div class=""></div>');
-    const btnReturn = $('<div class = "back"><a class="waves-effect waves-light btn-large">Volver</a></div>');
+    const btnReturn = $('<div class = "back flex"><a class="waves-effect waves-light btn-large">Volver</a></div>');
 
     parent.append(mapa);
 
@@ -417,13 +417,13 @@ const Recicla = (updated) => {
 
     const parent = $('<div class="container"></div>');
     const row = $('<div class="row bg_green_ligth"></div>');
-    const divTitle = $('<div class="center-align col s12 recicla">Recicla</div>');
+    const divTitle = $('<div class="center-align col s12 recicla"><h4>Recicla</h4></div>');
     const container = $('<div class="center-align col s12 cont_optciones"></div>');
     const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
 
     tipos.forEach(function(type){
         const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
-        const img = $('<a class=""><i class="'+type.img+'"></i></a>');
+        const img = $('<a class=""><i class="'+ type.img+'"></i></a>');
         const h5 = $('<h6 class="morado">'+ type.name + '</h6>');
 
         divContent.append(img);
@@ -464,7 +464,7 @@ const RutaRecicla = (updated) => {
     const parent = $('<div class=""></div>');
     const mapa = $('<div id="mapa"></div>');
     const detail = $('<div class=""></div>');
-    const btnReturn = $('<div><a class="waves-effect waves-light btn-large">Volver</a></div>');
+    const btnReturn = $('<div class="back flex"><a class="waves-effect waves-light btn-large">Volver</a></div>');
 
 
     parent.append(mapa);
@@ -485,10 +485,10 @@ const RutaRecicla = (updated) => {
 'use strict';
 const SuccesAcopio = (update) => {
 
-  const divCont_end = $('<div class="text-center bg_yellow"></div>');
+  const divCont_end = $('<div class="text-center"></div>');
     const row1      =$('<div class="row"></div>');
-    const logo      =$('<div class="col s12 center-align"><img src="assets/img/gracias.png"  alt="check" class="img-responsive"></div>');
-    const cont_text =$('<div class="col s12"><h5 class="center-align">¡Bien!<br>Gracias por ser parte del movimiento</h5></div>');
+    const logo      =$('<div class="col s10 center-align"><img src="assets/img/gracias.png"  alt="check" class="img-responsive"></div>');
+    const cont_text =$('<div class="col s12"><h4 class="center-align">¡Bien!<br>Gracias por ser parte del movimiento</h4></div>');
 
     row1.append(logo);
     row1.append(cont_text);

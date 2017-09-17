@@ -2,10 +2,10 @@
 
 const MapaRecicla = (updated) => {
 
-    const parent = $('<div class="row"><h5>'+ state.material+'</h5></div>');
+    const parent = $('<div class="row"><h4>'+ state.material+'</h4></div>');
     const mapa = $('<div id="mapa" class="col s10"></div>');
     const detail = $('<div class=""></div>');
-    const btnReturn = $('<div class = "back"><a class="waves-effect waves-light btn-large">Volver</a></div>');
+    const btnReturn = $('<div class = "back flex"><a class="waves-effect waves-light btn-large">Volver</a></div>');
 
     parent.append(mapa);
 
