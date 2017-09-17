@@ -9,8 +9,8 @@ const FormAcopio = (update) => {
         form.append(row_2);
   const int_1 =$('<div class="input-field col s10"></div>');
   const int_11=$('<i class="material-icons prefix">account_circle</i>');
-  const int_12=$('<input id="icon_prefix" type="text" class="validate">');
-  const int_13 =$('<label for="icon_prefix">Nombres y Apellidos</label>');
+  const int_12=$('<input id="icon_prefix" type="text" class="validate dataMust">');
+  const int_13 =$('<label for="icon_prefix">Nombre</label>');
   int_1.append(int_11,int_12,int_13) ;
   const int_2 =$('<div class="input-field col s10">'+
         '<i class="material-icons prefix">phone</i>'+
@@ -24,13 +24,13 @@ const FormAcopio = (update) => {
         '</div>');
   const int_4 =$('<div class="input-field col s10"></div>');
   const int_41 =$('<i class="material-icons prefix">location_city</i>');
-  const int_42 =$('<input id="ubicacion" type="tel" class="validate">');
+  const int_42 = $('<input id="ubicacion" type="text" placeholder = "" class="validate dataMust">');
   const int_43 =$('<label for="ubicacion">Ubicación</label>');
   int_4.append(int_41,int_42,int_43);
 
   const int_5 =$('<div class="col s10"><h6>Horario de Recepción</h6></div>'+
         '<div class="col s10">'+
-        '<p class="inline"><input type="checkbox" class="filled-in" id="dia1"/><label for="dia1">L</label></p>'+
+        '<p class="inline"><input type="checkbox" class="filled-in dataMust" id="dia1"/><label for="dia1">L</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia2" /><label for="dia2">M</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia3" /><label for="dia3">Mi</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia4"/><label for="dia4">J</label></p>'+
@@ -42,17 +42,17 @@ const int_6 =$('<div class="col s10">'+
         '</div>');
 const int_7 =$('<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
-          '  <input type="text" class="timepicker" required>'+
-          '  <label for="icon_event">Inicio</label>'+
+          '  <input type="text" class="timepicker dataMust">'+
+          '  <label for="icon_event" class="active">Inicio</label>'+
         '</div>');
 const int_8 =$('<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
-          '  <input type="text" class="timepicker" required>'+
-          '  <label for="icon_event">Fin</label>'+
+          '  <input type="text" class="timepicker dataMust">'+
+          '  <label for="icon_event" class="active">Fin</label>'+
         '</div>');
 const int_9 =$('<div class="col s10"><h6>Materiales</h6></div>');
 const int_s1 =$('<div class="col s5">'+
-                '<p><input type="checkbox" class="filled-in" id="in1"/><label for="in1">Plástico</label></p>'+
+                '<p><input type="checkbox" class="filled-in dataMust" id="in1"/><label for="in1">Plástico</label></p>'+
                 '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Ropa</label></p>'+
                 '<p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Vidrio</label></p>'+
               '</div>');
@@ -67,8 +67,12 @@ const int_s3 =$('<div class="input-field col s12">'+
          '</div>');
  row_2.append(int_1,int_2,int_3,int_4,int_5,int_6,int_7,int_8,int_9,int_s1,int_s2,int_s3);
   const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>');
+  const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+  
+  form.append(btnReturn);
   form.append(btn_send);
   cont_form.append(row_1);
+
 
   btn_send.on('click', (e) =>{
     e.preventDefault();
@@ -76,19 +80,28 @@ const int_s3 =$('<div class="input-field col s12">'+
      update();
   });
 
-  $(_ => {
-      $('.timepicker').pickatime({
-      default: 'now', // Set default time: 'now', '1:30AM', '16:30'
-      fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
-      twelvehour: false, // Use AM/PM or 24-hour format
-      donetext: 'OK', // text for done-button
-      cleartext: 'Clear', // text for clear-button
-      canceltext: 'Cancel', // Text for cancel-button
-      autoclose: false, // automatic close timepicker
-      ampmclickable: true, // make AM PM clickable
-      aftershow: function(){} //Function for after opening timepicker
-    });
+  btnReturn.on("click", (e) => {
+    e.preventDefault();
+    state.pagina = null;
+
+    updated();
   });
 
+  
   return cont_form;
 };
+function timepicker () {
+    $('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    aftershow: function(){} //Function for after opening timepicker
+  });
+};
+
+

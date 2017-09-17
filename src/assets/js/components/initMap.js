@@ -1,12 +1,5 @@
 'use strict';
-function initAutocomplete() {
-  console.log("hola");
 
-  var input = /** @type {!HTMLInputElement} */(
-            document.getElementById('ubicacion'));
-  var autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.bindTo('bounds',map);
-};
 function initMap () {
 
     var uluru = { lat: -25.363, lng: 131.044 };
@@ -37,9 +30,8 @@ function initMap () {
             if(state.pagina == 2){
                 var markers = state.locations[0].lugares_acopio.map(function (location) {
                     var contentString = '<div id = "content"><p>'+location.name+'</p><p>'+location.direccion+'</p><p>'+location.horario+'</p></div>';
-                    var ruta = '<p class="ruta">Trazar Ruta</p>';
                     var infowindow = new google.maps.InfoWindow({
-                        content: contentString + ruta
+                        content: contentString
                     });
 
                     const newMarker = new google.maps.Marker({

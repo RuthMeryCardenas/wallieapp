@@ -39,7 +39,9 @@ const render = (root) => {
         initMap();
     }
     if(state.pagina == 4){
-        initAutocomplete()
+        var input = document.getElementById("ubicacion");
+        new google.maps.places.Autocomplete(input);
+        timepicker();
     }
 
 }
@@ -91,12 +93,15 @@ const TipDetail = (updated) => {
     const row = $('<div class="row"></div>');
     const divTitle = $('<div class="center-align col s12"></div>');
     const mjsTitle=$('<h4>'+ state.material+'</h4>');
-    const contMjs =$('<div class="center-align col s12">'+ state.material+'</div>');
-    divTitle.append(mjsTitle,contMjs);
-    const container = $('<div class="center-align col s12">2</div>');
+    const container = $('<div class="center-align col s12"></div>');
     const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
-
-
+    divTitle.append(mjsTitle);
+    
+    state.locations[0].tips.map(function (tip) {
+        
+        container.append(detalle(tip));    
+    });
+    
 
     btnReturn.on("click", (e) => {
         e.preventDefault();
@@ -114,6 +119,18 @@ const TipDetail = (updated) => {
     return parent;
 }
 
+const detalle = (tip) => {
+    const contTip = $('<div><div>');
+    const contMjs = $('<div class="center-align col s12">' + tip.titulo + '</div>');
+    const contDesc = $('<div class="center-align col s12">' + tip.descripcion + '</div>');
+    const contImg = $('<div class="center-align col s12"><img src="' + tip.img + '" alt=""></div>');
+
+    contTip.append(contMjs);
+    contTip.append(contDesc);
+    contTip.append(contImg);
+
+    return contTip;
+}
 'use strict';
 const FormAcopio = (update) => {
 
@@ -125,8 +142,8 @@ const FormAcopio = (update) => {
         form.append(row_2);
   const int_1 =$('<div class="input-field col s10"></div>');
   const int_11=$('<i class="material-icons prefix">account_circle</i>');
-  const int_12=$('<input id="icon_prefix" type="text" class="validate">');
-  const int_13 =$('<label for="icon_prefix">Nombres y Apellidos</label>');
+  const int_12=$('<input id="icon_prefix" type="text" class="validate dataMust">');
+  const int_13 =$('<label for="icon_prefix">Nombre</label>');
   int_1.append(int_11,int_12,int_13) ;
   const int_2 =$('<div class="input-field col s10">'+
         '<i class="material-icons prefix">phone</i>'+
@@ -140,13 +157,13 @@ const FormAcopio = (update) => {
         '</div>');
   const int_4 =$('<div class="input-field col s10"></div>');
   const int_41 =$('<i class="material-icons prefix">location_city</i>');
-  const int_42 =$('<input id="ubicacion" type="tel" class="validate">');
+  const int_42 = $('<input id="ubicacion" type="text" placeholder = "" class="validate dataMust">');
   const int_43 =$('<label for="ubicacion">Ubicación</label>');
   int_4.append(int_41,int_42,int_43);
 
   const int_5 =$('<div class="col s10"><h6>Horario de Recepción</h6></div>'+
         '<div class="col s10">'+
-        '<p class="inline"><input type="checkbox" class="filled-in" id="dia1"/><label for="dia1">L</label></p>'+
+        '<p class="inline"><input type="checkbox" class="filled-in dataMust" id="dia1"/><label for="dia1">L</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia2" /><label for="dia2">M</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia3" /><label for="dia3">Mi</label></p>'+
         '<p class="inline"><input type="checkbox" class="filled-in" id="dia4"/><label for="dia4">J</label></p>'+
@@ -158,17 +175,17 @@ const int_6 =$('<div class="col s10">'+
         '</div>');
 const int_7 =$('<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
-          '  <input type="text" class="timepicker" required>'+
-          '  <label for="icon_event">Inicio</label>'+
+          '  <input type="text" class="timepicker dataMust">'+
+          '  <label for="icon_event" class="active">Inicio</label>'+
         '</div>');
 const int_8 =$('<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
-          '  <input type="text" class="timepicker" required>'+
-          '  <label for="icon_event">Fin</label>'+
+          '  <input type="text" class="timepicker dataMust">'+
+          '  <label for="icon_event" class="active">Fin</label>'+
         '</div>');
 const int_9 =$('<div class="col s10"><h6>Materiales</h6></div>');
 const int_s1 =$('<div class="col s5">'+
-                '<p><input type="checkbox" class="filled-in" id="in1"/><label for="in1">Plástico</label></p>'+
+                '<p><input type="checkbox" class="filled-in dataMust" id="in1"/><label for="in1">Plástico</label></p>'+
                 '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Ropa</label></p>'+
                 '<p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Vidrio</label></p>'+
               '</div>');
@@ -183,8 +200,12 @@ const int_s3 =$('<div class="input-field col s12">'+
          '</div>');
  row_2.append(int_1,int_2,int_3,int_4,int_5,int_6,int_7,int_8,int_9,int_s1,int_s2,int_s3);
   const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>');
+  const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+  
+  form.append(btnReturn);
   form.append(btn_send);
   cont_form.append(row_1);
+
 
   btn_send.on('click', (e) =>{
     e.preventDefault();
@@ -192,22 +213,31 @@ const int_s3 =$('<div class="input-field col s12">'+
      update();
   });
 
-  $(_ => {
-      $('.timepicker').pickatime({
-      default: 'now', // Set default time: 'now', '1:30AM', '16:30'
-      fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
-      twelvehour: false, // Use AM/PM or 24-hour format
-      donetext: 'OK', // text for done-button
-      cleartext: 'Clear', // text for clear-button
-      canceltext: 'Cancel', // Text for cancel-button
-      autoclose: false, // automatic close timepicker
-      ampmclickable: true, // make AM PM clickable
-      aftershow: function(){} //Function for after opening timepicker
-    });
+  btnReturn.on("click", (e) => {
+    e.preventDefault();
+    state.pagina = null;
+
+    updated();
   });
 
+  
   return cont_form;
 };
+function timepicker () {
+    $('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    aftershow: function(){} //Function for after opening timepicker
+  });
+};
+
+
 
 "use strict";
 
@@ -244,14 +274,7 @@ const Home = (updated) => {
 }
 
 'use strict';
-function initAutocomplete() {
-  console.log("hola");
 
-  var input = /** @type {!HTMLInputElement} */(
-            document.getElementById('ubicacion'));
-  var autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.bindTo('bounds',map);
-};
 function initMap () {
 
     var uluru = { lat: -25.363, lng: 131.044 };
@@ -282,9 +305,8 @@ function initMap () {
             if(state.pagina == 2){
                 var markers = state.locations[0].lugares_acopio.map(function (location) {
                     var contentString = '<div id = "content"><p>'+location.name+'</p><p>'+location.direccion+'</p><p>'+location.horario+'</p></div>';
-                    var ruta = '<p class="ruta">Trazar Ruta</p>';
                     var infowindow = new google.maps.InfoWindow({
-                        content: contentString + ruta
+                        content: contentString
                     });
 
                     const newMarker = new google.maps.Marker({
@@ -374,14 +396,25 @@ const MapaRecicla = (updated) => {
     const parent = $('<div class="row"></div>');
     const mapa = $('<div id="mapa" class="col s10"></div>');
     const detail = $('<div class=""></div>');
+    const btnReturn = $('<div class = "back"><a class="waves-effect waves-light btn-large">Volver</a></div>');
 
     parent.append(mapa);
-    parent.append(detail);
-
-    state.locations[0].lugares_acopio.map(function (location) {
-        parent.append(locationDetail(location, updated));
+    
+    btnReturn.on("click", (e) => {
+        e.preventDefault();
+        state.pagina = state.pagina-1;
+        state.material = null;
+        state.locations = null;
+        updated();
     });
-
+    
+    state.locations[0].lugares_acopio.map(function (location) {
+        detail.append(locationDetail(location, updated));
+    });
+    
+    parent.append(detail);
+    parent.append(btnReturn);
+    
     return parent;
 
 }
@@ -446,9 +479,19 @@ const RutaRecicla = (updated) => {
     const parent = $('<div class=""></div>');
     const mapa = $('<div id="mapa"></div>');
     const detail = $('<div class=""></div>');
+    const btnReturn = $('<div><a class="waves-effect waves-light btn-large">Volver</a></div>');
+
 
     parent.append(mapa);
     parent.append(detail);
+    parent.append(btnReturn);
+
+    btnReturn.on("click", (e) => {
+        e.preventDefault();
+        state.pagina = state.pagina - 1;
+        state.selectedLocation = null;
+        updated();
+    });
 
     return parent;
 
