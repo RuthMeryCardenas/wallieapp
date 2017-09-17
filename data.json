@@ -1,6 +1,6 @@
 {
   "wallie": [{
-      "tipos": "aceite",
+      "tipos": "Aceite",
       "lugares_acopio": [{
           "latitud": -12.111769,
           "longitud": -77.047117 ,
@@ -67,8 +67,8 @@
       ],
 
       "tips": [{
-        "titulo": " ",
-        "descripcion": " "
+        "titulo": "tip_03.png"
+
       }]
     },
     {
@@ -229,10 +229,8 @@
         }
       ],
 
-
       "tips": [{
-        "titulo": " ",
-        "descripcion": " "
+        "titulo": "tip_02.png "
       }]
     },
 
@@ -317,15 +315,13 @@
         }
       ],
 
-
       "tips": [{
-        "titulo": " ",
-        "descripcion": " "
+        "titulo": "tip_04.png"
       }]
     },
 
     {
-      "tipos": "plastico",
+      "tipos": "Plastico",
       "lugares_acopio": [{
           "latitud": -12.104675,
           "longitud": -77.059200,
@@ -405,13 +401,12 @@
         }
       ],
       "tips": [{
-        "titulo": " ",
-        "descripcion": " "
+        "titulo": "tip_01.png"
       }]
     },
 
     {
-      "tipos": "vidrio",
+      "tipos": "Vidrio",
       "lugares_acopio": [{
           "latitud": -12.104675,
           "longitud": -77.059200,
@@ -491,8 +486,7 @@
         }
       ],
       "tips": [{
-        "titulo": " ",
-        "descripcion": " "
+        "titulo": "tip_05.png"
       }]
     },
 
@@ -521,10 +515,8 @@
         }
       ],
 
-
       "tips": [{
-        "titulo": " ",
-        "descripcion": " "
+        "titulo": "tip_02.png "
       }]
     },
 
@@ -553,8 +545,7 @@
         }
       ],
       "tips": [{
-        "titulo": " ",
-        "descripcion": " "
+        "titulo": " "
       }]
     }
   ]

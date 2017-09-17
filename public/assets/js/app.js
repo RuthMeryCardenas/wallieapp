@@ -87,12 +87,12 @@ const TipDetail = (updated) => {
     const container = $('<div class="center-align col s12"></div>');
     const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
     divTitle.append(mjsTitle);
-    
+
     state.locations[0].tips.map(function (tip) {
-        
-        container.append(detalle(tip));    
+
+        container.append(detalle(tip));
     });
-    
+
 
     btnReturn.on("click", (e) => {
         e.preventDefault();
@@ -111,17 +111,11 @@ const TipDetail = (updated) => {
 }
 
 const detalle = (tip) => {
-    const contTip = $('<div><div>');
-    const contMjs = $('<div class="center-align col s12">' + tip.titulo + '</div>');
-    const contDesc = $('<div class="center-align col s12">' + tip.descripcion + '</div>');
-    const contImg = $('<div class="center-align col s12"><img src="' + tip.img + '" alt=""></div>');
+    const contImg = $('<div class="center-align col s12"><img src="assets/img/' + tip.titulo+ '" alt="logo" class="img-responsive"></div>');
 
-    contTip.append(contMjs);
-    contTip.append(contDesc);
-    contTip.append(contImg);
-
-    return contTip;
+    return contImg;
 }
+
 'use strict';
 const FormAcopio = (update) => {
 
@@ -384,13 +378,13 @@ const locationDetail = (location, updated) => {
 
 const MapaRecicla = (updated) => {
 
-    const parent = $('<div class="row"></div>');
+    const parent = $('<div class="row"><h5>'+ state.material+'</h5></div>');
     const mapa = $('<div id="mapa" class="col s10"></div>');
     const detail = $('<div class=""></div>');
     const btnReturn = $('<div class = "back"><a class="waves-effect waves-light btn-large">Volver</a></div>');
 
     parent.append(mapa);
-    
+
     btnReturn.on("click", (e) => {
         e.preventDefault();
         state.pagina = state.pagina-1;
@@ -398,14 +392,14 @@ const MapaRecicla = (updated) => {
         state.locations = null;
         updated();
     });
-    
+
     state.locations[0].lugares_acopio.map(function (location) {
         detail.append(locationDetail(location, updated));
     });
-    
+
     parent.append(detail);
     parent.append(btnReturn);
-    
+
     return parent;
 
 }
@@ -493,7 +487,7 @@ const SuccesAcopio = (update) => {
 
   const divCont_end = $('<div class="text-center bg_yellow"></div>');
     const row1      =$('<div class="row"></div>');
-    const logo      =$('<div class="col s12 center-align"><img src="assets/img/img1.jpg" class="logo" alt="check"></div>');
+    const logo      =$('<div class="col s12 center-align"><img src="assets/img/gracias.png"  alt="check" class="img-responsive"></div>');
     const cont_text =$('<div class="col s12"><h5 class="center-align">¡Bien!<br>Gracias por ser parte del movimiento</h5></div>');
 
     row1.append(logo);
