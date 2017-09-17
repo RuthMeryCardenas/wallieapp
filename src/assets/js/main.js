@@ -65,10 +65,11 @@ $(_ => {
   };
   firebase.initializeApp(config);
   var database = firebase.database();
+      console.log(database.ref().child("lugares_acopio"));
     database.ref().on("value", function(snap){
-
+        console.log(snap.val());
+        
         state.wallie = snap.val();
-        console.log(state.wallie);
 
         const root = $(".root");
         render(root);

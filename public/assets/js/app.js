@@ -65,10 +65,11 @@ $(_ => {
   };
   firebase.initializeApp(config);
   var database = firebase.database();
+      console.log(database.ref().child("lugares_acopio"));
     database.ref().on("value", function(snap){
-
+        console.log(snap.val());
+        
         state.wallie = snap.val();
-        console.log(state.wallie);
 
         const root = $(".root");
         render(root);
@@ -200,6 +201,7 @@ const int_s3 =$('<div class="input-field col s12">'+
 
   btn_send.on('click', (e) =>{
     e.preventDefault();
+    postWallie();
      state.pagina = 5;
      update();
   });
@@ -407,6 +409,25 @@ const MapaRecicla = (updated) => {
 
 }
 
+'use strict';
+
+const postWallie = (newLocation) => {
+    var postData = {
+        direccion: newLocation.direccion,
+        horario: newLocation.hoario,
+        latitud: newLocation.latitud,
+        longitud: newLocation.longitud,
+        name: newLocation.name
+    };
+
+    var newPostRef = postListRef.push();
+    newPostRef.set({
+        // ...
+    }); 
+
+
+   
+}
 "use strict";
 
 const Recicla = (updated) => {

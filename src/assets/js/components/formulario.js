@@ -76,6 +76,7 @@ const int_s3 =$('<div class="input-field col s12">'+
 
   btn_send.on('click', (e) =>{
     e.preventDefault();
+    postWallie();
      state.pagina = 5;
      update();
   });
