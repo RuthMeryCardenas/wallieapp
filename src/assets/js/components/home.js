@@ -3,20 +3,30 @@
 
 const Home = (updated) => {
 
-    const parent = $('<div class="container"></div>');
-    const row = $('<div class="row"><div>');
-    const div = $('<div class="center-align col s12"></div>');
-    const btnRecicle = $('<div class="col s6><a class="waves-effect waves-light btn-large">Recicla</a></div>');
-    const btnPoint = $('<div class="col s6><a class="waves-effect waves-light btn-large">Cargar Nuevo Punto</a></div>');
-    const btnTips = $('<div class="col s6><a class="waves-effect waves-light btn-large">Tips</a></div>');
+    const parent = $('<div class="center-align"></div>');
+    const btnRecicle = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions">Recicla</a></div><br>');
+    const btnPoint = $('<div><a class="waves-effect waves-light btn-large actions">Cargar Nuevo Punto</a></div><br>');
+    const btnTips = $('<div><a class="waves-effect waves-light btn-large actions">Tips</a></div><br>');
     
-
-    div.append(btnRecicle);
-    div.append(btnPoint);
-    div.append(btnTips);    
-    row.append(div);
-    parent.append(row);
-
+    parent.append(btnRecicle);
+    parent.append(btnPoint);
+    parent.append(btnTips);    
+    
+    btnRecicle.on("click", (e) => {
+        e.preventDefault();
+        state.pagina = 1;
+        updated();
+    });
+    btnPoint.on("click", function (e) {
+        e.preventDefault();
+        state.page = 2;
+        updated();
+    });
+    btnTips.on("click", function (e) {
+        e.preventDefault();
+        state.page = 3;
+        updated();
+    });
 
     return parent;
 
