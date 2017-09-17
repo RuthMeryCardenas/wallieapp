@@ -1,6 +1,6 @@
 'use strict';
 
-function initMap (locations) {
+function initMap () {
     console.log("hola");
     var uluru = { lat: -25.363, lng: 131.044 };
     var map = new google.maps.Map(document.getElementById("mapa"), {
@@ -25,18 +25,35 @@ function initMap (locations) {
                 position: pos,
                 map: map
             });
-            
-            // var markers = state.locations.map(function (location, i) {
-            //     return new google.maps.Marker({
-            //         position: location,
-            //         map: map
-            //     });
-            // });
 
-            // const directionsDisplay = new google.maps.DirectionsRenderer;
-            // const directionsService = new google.maps.DirectionsService;
-            // directionsDisplay.setMap(map);
-            // calculateAndDisplayRoute(directionsService, directionsDisplay, pos);
+            
+            if(state.pagina == 2){
+                var markers = state.locations[0].lugares_acopio.map(function (location) {
+                    var contentString = '<div id = "content"><p>'+location.name+'</p><p>'+location.direccion+'</p><p>'+location.horario+'</p></div>';
+                    var ruta = '<p class="ruta">Trazar Ruta</p>';
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString + ruta
+                    });
+
+                    const newMarker = new google.maps.Marker({
+                        position: {lat: location.latitud, lng: location.longitud},
+                        map:map
+                    })
+                    newMarker.addListener("click", function(){
+                        infowindow.open(map, newMarker);
+
+                    });
+                   
+                    return newMarker;
+                });
+
+
+            }else {
+                marker.setMap(null);
+                calculateAndDisplayRoute(pos, map);
+
+            }
+            
         });
     } else {
         // Browser doesn't support Geolocation
@@ -53,19 +70,20 @@ function handleLocationError(browserHasGeolocation, map, pos) {
         'Error: Your browser doesn\'t support geolocation.');
 }
 
-function calculateAndDisplayRoute(directionsService, directionsDisplay, pos) {
+function calculateAndDisplayRoute(pos, map) {
+
      const directionsDisplay = new google.maps.DirectionsRenderer;
      const directionsService = new google.maps.DirectionsService;
-     directionsDisplay.setMap(map);
+    directionsDisplay.setMap(map);
     directionsService.route({
         origin: pos,
-        destination: { lat: state.selectedStation.lat, lng: state.selectedStation.long },
+        destination: { lat: state.selectedLocation.latitud, lng: state.selectedLocation.longitud },
         travelMode: 'DRIVING'
     }, function (response, status) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
             const distancia = ((response.routes[0].legs[0].distance.text));
-            $('#km').text(distancia);
+            // $('#km').text(distancia);
         } else {
             window.alert('Directions request failed due to ' + status);
         }

@@ -28,14 +28,13 @@ const render = (root) => {
         case 6:
             wrapper.append(TipsR(updated));
             break;
-        case 7:
-            wrapper.append(Contacto(updated));
-            break;
+        
     }
 
     root.append(wrapper);
-    if(state.pagina == 2){
+    if(state.pagina == 2 || state.pagina == 3){
         initMap();
+        
     }
 
 }
@@ -59,13 +58,13 @@ $(_ => {
   };
   firebase.initializeApp(config);
   var database = firebase.database();
-  database.ref().on("value", function(snap){
+    database.ref().on("value", function(snap){
 
-    state.wallie = snap.val();
-    console.log(state.wallie);
+        state.wallie = snap.val();
+        console.log(state.wallie);
 
-    const root = $(".root");
-    render(root);
+        const root = $(".root");
+        render(root);
 
-});
+    });
 });
