@@ -9,7 +9,7 @@ const render = (root) => {
 
     switch (state.pagina) {
         case null:
-            wrapper.append(Home(updated));
+            wrapper.append(FormAcopio(updated));
             break;
         case 1:
             wrapper.append(Recicla(updated));
@@ -21,7 +21,7 @@ const render = (root) => {
             wrapper.append(RutaRecicla(updated));
             break;
         case 4:
-            wrapper.append(FormAcopio(updated));
+            wrapper.append(Home(updated));
             break;
         case 5:
             wrapper.append(SuccesAcopio(updated));
@@ -47,8 +47,8 @@ const state = {
 
 
 $(_ => {
-
     const root = $(".root");
     render(root);
+
 
 });
