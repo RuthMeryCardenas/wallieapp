@@ -72,6 +72,5 @@ $(_ => {
 
         const root = $(".root");
         render(root);
-
     });
 });
