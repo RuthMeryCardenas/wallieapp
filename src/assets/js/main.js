@@ -5,7 +5,6 @@ const render = (root) => {
     const wrapper = $('<div class="wrapper"></div>');
 
     switch (state.pagina) {
-       
         case 1:
             wrapper.append(DetailBrand(updated));
             break;
@@ -19,7 +18,7 @@ const render = (root) => {
             wrapper.append(DetailProduct(updated));
             break;
         case 5:
-            wrapper.append(Servicios(updated));
+            wrapper.append(Formulario(updated));
             break;
         case 6:
             wrapper.append(Empresa(updated));
@@ -44,14 +43,6 @@ const state = {
 $(_ => {
 
     const root = $(".root");
-    if(state.pagina != null){
-        render(root);
-    }
+    state.pagina=5;
 
-});
-
-$(document).ready(function () {
-    var date = new Date()
-    $('.slider').slider();
-    $(".copy-year").text(date.getFullYear());
 });
