@@ -1,6 +1,5 @@
 "use strict";
 
-console.log("hola");
 
 const root = $(".root");
 const render = (root) => {
@@ -16,6 +15,7 @@ const render = (root) => {
             break;
         case 2:
             wrapper.append(MapaRecicla(updated));
+
             break;
         case 3:
             wrapper.append(RutaRecicla(updated));
@@ -35,6 +35,9 @@ const render = (root) => {
     }
 
     root.append(wrapper);
+    if(state.pagina == 2){
+        initMap();
+    }
 
 }
 
@@ -49,6 +52,10 @@ const state = {
 $(_ => {
     const root = $(".root");
     render(root);
+<<<<<<< HEAD
+=======
+});
+>>>>>>> 4f669b1e34abc47322f0350fbb2e32400ee23c4b
 
 
 });
