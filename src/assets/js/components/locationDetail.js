@@ -6,7 +6,7 @@ const locationDetail = (location, updated) => {
     const parent = $('<div class="cont_detail" data-lugar = ""></div>');
     const name = $('<div class="name_acopio"><i class="icon-feather "></i><span class="">'+ location.name + '</span></div>');
     const cont_icon =$('<div class="ruta_acopio"><i class="icon-map"></i></div>');
-    const icon = $('<span class ="ruta">Trazar ruta</span>');
+    const icon = $('<span class ="ruta">Trace route</span>');
     cont_icon.append(icon);
 
 

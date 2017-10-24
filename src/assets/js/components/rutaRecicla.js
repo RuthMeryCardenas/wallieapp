@@ -5,7 +5,7 @@ const RutaRecicla = (updated) => {
     const parent = $('<div class=""></div>');
     const mapa = $('<div id="mapa"></div>');
     const detail = $('<div class=""></div>');
-    const btnReturn = $('<div class="back flex"><a class="waves-effect waves-light btn-large">Volver</a></div>');
+    const btnReturn = $('<div class="back flex"><a class="waves-effect waves-light btn-large">Back</a></div>');
 
 
     parent.append(mapa);

@@ -1,3 +1,29 @@
+'use strict';
+
+$( _ => {
+
+
+    $('.lang-es').on('click', e => {
+        $('.black-in').addClass('animated fadeOut');
+        $('.lang').addClass('animated fadeOut');
+        setTimeout(function () {
+            window.location.href = './es/home.html';
+        }, 750);
+    });
+    
+    $('.lang-en').on('click', e => {
+        $('.black-in').addClass('animated fadeOut');
+        $('.lang').addClass('animated fadeOut');
+        setTimeout(function () {
+            window.location.href = './en/home.html';
+        }, 750);
+    });
+
+
+    console.log("%c¿Quieres ver más código? %cTe invito a mi repositorio en %cgithub.com/anadurand :)", "color: #059b85; font-size:15px; font-weight:bold", "color: #483e45; font-size:15px;", "color: #483e45; font-size:15px;font-weight:bold;");
+});
+
+
 "use strict";
 
 
@@ -72,7 +98,6 @@ $(_ => {
 
         const root = $(".root");
         render(root);
-
     });
 });
 
@@ -230,8 +255,8 @@ function timepicker () {
 const Home = (updated) => {
 
     const parent = $('<div class="center-align fondo"></div>');
-    const btnRecicle = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-recycle"></i>Recicla</a></div><br>');
-    const btnPoint = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-map-pin"></i>Cargar Nuevo Punto</a></div><br>');
+    const btnRecicle = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-recycle"></i>Recycle</a></div><br>');
+    const btnPoint = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-map-pin"></i>Be a voluntary point</a></div><br>');
     const btnTips = $('<div class="recicla"><a class="waves-effect waves-light btn-large actions"><i class="icon-lightbulb"></i>Tips</a></div><br>');
 
     parent.append(btnRecicle);
@@ -357,7 +382,7 @@ const locationDetail = (location, updated) => {
     const parent = $('<div class="cont_detail" data-lugar = ""></div>');
     const name = $('<div class="name_acopio"><i class="icon-feather "></i><span class="">'+ location.name + '</span></div>');
     const cont_icon =$('<div class="ruta_acopio"><i class="icon-map"></i></div>');
-    const icon = $('<span class ="ruta">Trazar ruta</span>');
+    const icon = $('<span class ="ruta">Trace route</span>');
     cont_icon.append(icon);
 
 
@@ -381,7 +406,7 @@ const MapaRecicla = (updated) => {
     const parent = $('<div class="row"><h4>'+ state.material+'</h4></div>');
     const mapa = $('<div id="mapa" class="col s12"></div>');
     const detail = $('<div class="col s12"></div>');
-    const btnReturn = $('<div class = "col s5 push-s3"><a class="waves-effect waves-light btn-large">Volver</a></div>');
+    const btnReturn = $('<div class = "col s5 push-s3"><a class="waves-effect waves-light btn-large">Back</a></div>');
 
     parent.append(mapa);
 
@@ -408,21 +433,21 @@ const MapaRecicla = (updated) => {
 
 const Recicla = (updated) => {
 
-    const tipos = [ { name: "Plastico", img: "icon-bowling-pins" },
-                    { name: "Vidrio", img: "icon-wine" },
-                    { name: "RAEE", img: "icon-megaphone" },
-                    { name: "Aceite", img: "icon-caution" },
-                    { name: "Cartón y Papel", img: "icon-box2" },
-                    { name: "Pilas", img: "icon-battery2" }];
+    const tipos = [ { name:"Plastic", nameEs: "Plastico", img: "icon-bowling-pins" },
+                    { name:"Glass", nameEs: "Vidrio", img: "icon-wine" },
+                    { name:"WEEE", nameEs: "RAEE", img: "icon-megaphone" },
+                    { name:"Oil", nameEs: "Aceite", img: "icon-caution" },
+                    { name:"Paper and paperboard", nameEs: "Cartón y Papel", img: "icon-box2" },
+                    { name:"Batteries", nameEs: "Pilas", img: "icon-battery2" }];
 
     const parent = $('<div class="container"></div>');
     const row = $('<div class="row bg_green_ligth"></div>');
-    const divTitle = $('<div class="center-align col s12 recicla"><h4>Recicla</h4></div>');
+    const divTitle = $('<div class="center-align col s12 recicla"><h4>Recycle</h4></div>');
     const container = $('<div class="center-align col s12 cont_optciones"></div>');
-    const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+    const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Back</a></div>');
 
     tipos.forEach(function(type){
-        const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
+        const divContent = $('<div class="col s6" data-id = "'+ type.nameEs + '"></div>');
         const img = $('<a class=""><i class="'+ type.img+'"></i></a>');
         const h5 = $('<h6 class="morado">'+ type.name + '</h6>');
 
@@ -464,7 +489,7 @@ const RutaRecicla = (updated) => {
     const parent = $('<div class=""></div>');
     const mapa = $('<div id="mapa"></div>');
     const detail = $('<div class=""></div>');
-    const btnReturn = $('<div class="back flex"><a class="waves-effect waves-light btn-large">Volver</a></div>');
+    const btnReturn = $('<div class="back flex"><a class="waves-effect waves-light btn-large">Back</a></div>');
 
 
     parent.append(mapa);
