@@ -5,9 +5,9 @@ const TipDetail = (updated) => {
     const parent = $('<div class="container"></div>');
     const row = $('<div class="row"></div>');
     const divTitle = $('<div class="center-align col s12"></div>');
-    const mjsTitle=$('<h4>'+ state.material+'</h4>');
+    const mjsTitle=$('<h4>'+ state.type+'</h4>');
     const container = $('<div class="center-align col s12"></div>');
-    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Back</a></div>');
     divTitle.append(mjsTitle);
 
     state.locations[0].tips.map(function (tip) {
@@ -18,9 +18,10 @@ const TipDetail = (updated) => {
 
     btnReturn.on("click", (e) => {
         e.preventDefault();
-        state.pagina = null;
+        state.pagina = 6;
         state.material = null;
         state.locations = null;
+        state.type = null;
         updated();
     })
 

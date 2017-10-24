@@ -3,21 +3,21 @@
 $( _ => {
 
 
-    $('.lang-es').on('click', e => {
-        $('.black-in').addClass('animated fadeOut');
-        $('.lang').addClass('animated fadeOut');
-        setTimeout(function () {
-            window.location.href = './es/home.html';
-        }, 750);
-    });
+    // $('.lang-es').on('click', e => {
+    //     $('.black-in').addClass('animated fadeOut');
+    //     $('.lang').addClass('animated fadeOut');
+    //     setTimeout(function () {
+    //         window.location.href = './es/home.html';
+    //     }, 750);
+    // });
     
-    $('.lang-en').on('click', e => {
-        $('.black-in').addClass('animated fadeOut');
-        $('.lang').addClass('animated fadeOut');
-        setTimeout(function () {
-            window.location.href = './en/home.html';
-        }, 750);
-    });
+    // $('.lang-en').on('click', e => {
+    //     $('.black-in').addClass('animated fadeOut');
+    //     $('.lang').addClass('animated fadeOut');
+    //     setTimeout(function () {
+    //         window.location.href = './en/home.html';
+    //     }, 750);
+    // });
 
 
     console.log("%c¿Quieres ver más código? %cTe invito a mi repositorio en %cgithub.com/anadurand :)", "color: #059b85; font-size:15px; font-weight:bold", "color: #483e45; font-size:15px;", "color: #483e45; font-size:15px;font-weight:bold;");
@@ -108,9 +108,9 @@ const TipDetail = (updated) => {
     const parent = $('<div class="container"></div>');
     const row = $('<div class="row"></div>');
     const divTitle = $('<div class="center-align col s12"></div>');
-    const mjsTitle=$('<h4>'+ state.material+'</h4>');
+    const mjsTitle=$('<h4>'+ state.type+'</h4>');
     const container = $('<div class="center-align col s12"></div>');
-    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+    const btnReturn = $('<div><a class="waves-effect waves-light btn-large actions">Back</a></div>');
     divTitle.append(mjsTitle);
 
     state.locations[0].tips.map(function (tip) {
@@ -121,9 +121,10 @@ const TipDetail = (updated) => {
 
     btnReturn.on("click", (e) => {
         e.preventDefault();
-        state.pagina = null;
+        state.pagina = 6;
         state.material = null;
         state.locations = null;
+        state.type = null;
         updated();
     })
 
@@ -153,12 +154,12 @@ const FormAcopio = (update) => {
   const int_1 =$('<div class="input-field col s10"></div>');
   const int_11=$('<i class="material-icons prefix">account_circle</i>');
   const int_12=$('<input id="icon_prefix" type="text" class="validate dataMust">');
-  const int_13 =$('<label for="icon_prefix">Nombre</label>');
+  const int_13 =$('<label for="icon_prefix">Name</label>');
   int_1.append(int_11,int_12,int_13) ;
   const int_2 =$('<div class="input-field col s10">'+
         '<i class="material-icons prefix">phone</i>'+
         '<input id="icon_telephone" type="number"  maxlength="999999999"  class="validate">'+
-        '<label for="icon_telephone">Celular</label>'+
+        '<label for="icon_telephone">Cellphone</label>'+
         '</div>');
   const int_3 =$('<div class="input-field col s10">'+
           '  <i class="material-icons prefix">drafts</i>'+
@@ -168,50 +169,50 @@ const FormAcopio = (update) => {
   const int_4 =$('<div class="input-field col s10"></div>');
   const int_41 =$('<i class="material-icons prefix">location_city</i>');
   const int_42 = $('<input id="ubicacion" type="text" placeholder = "" class="validate dataMust">');
-  const int_43 =$('<label for="ubicacion">Ubicación</label>');
+  const int_43 =$('<label for="ubicacion">Address</label>');
   int_4.append(int_41,int_42,int_43);
 
-  const int_5 =$('<div class="col s10"><h6>Horario de Recepción</h6></div>'+
+  const int_5 =$('<div class="col s10"><h6>Reception Hours</h6></div>'+
         '<div class="col s12">'+
-        '<p class="inline"><input type="checkbox" class="filled-in dataMust" id="dia1"/><label for="dia1">L</label></p>'+
-        '<p class="inline"><input type="checkbox" class="filled-in" id="dia2" /><label for="dia2">M</label></p>'+
-        '<p class="inline"><input type="checkbox" class="filled-in" id="dia3" /><label for="dia3">Mi</label></p>'+
-        '<p class="inline"><input type="checkbox" class="filled-in" id="dia4"/><label for="dia4">J</label></p>'+
+        '<p class="col s3"><input type="checkbox" class="filled-in dataMust" id="dia1"/><label for="dia1">M</label></p>'+
+        '<p class="col s3"><input type="checkbox" class="filled-in" id="dia2" /><label for="dia2">Tue</label></p>'+
+        '<p class="col s3"><input type="checkbox" class="filled-in" id="dia3" /><label for="dia3">Wed</label></p>'+
+        '<p class="col s3"><input type="checkbox" class="filled-in" id="dia4"/><label for="dia4">Thu</label></p>'+
         '</div>');
 const int_6 =$('<div class="col s10">'+
-        '<p class="inline"><input type="checkbox" class="filled-in" id="dia5" /><label for="dia5">V</label></p>'+
-        '<p class="inline"><input type="checkbox" class="filled-in" id="dia6" /><label for="dia6">S</label></p>'+
-        '<p class="inline"><input type="checkbox" class="filled-in" id="dia7" /><label for="dia7">D</label></p>'+
+        '<p class="col s4"><input type="checkbox" class="filled-in" id="dia5" /><label for="dia5">Fri</label></p>'+
+        '<p class="col s4"><input type="checkbox" class="filled-in" id="dia6" /><label for="dia6">Sat</label></p>'+
+        '<p class="col s4"><input type="checkbox" class="filled-in" id="dia7" /><label for="dia7">Sun</label></p>'+
         '</div>');
 const int_7 =$('<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
           '  <input type="text" class="timepicker dataMust">'+
-          '  <label for="icon_event" class="active">Inicio</label>'+
+          '  <label for="icon_event" class="active">Start</label>'+
         '</div>');
 const int_8 =$('<div class="input-field col s5">'+
           '  <i class="material-icons prefix">event</i>'+
           '  <input type="text" class="timepicker dataMust">'+
-          '  <label for="icon_event" class="active">Fin</label>'+
+          '  <label for="icon_event" class="active">Finish</label>'+
         '</div>');
-const int_9 =$('<div class="col s10"><h6>Materiales</h6></div>');
+const int_9 =$('<div class="col s10"><h6>Materials</h6></div>');
 const int_s1 =$('<div class="col s5">'+
-                '<p><input type="checkbox" class="filled-in dataMust" id="in1"/><label for="in1">Plástico</label></p>'+
-                '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Ropa</label></p>'+
-                '<p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Vidrio</label></p>'+
+                '<p><input type="checkbox" class="filled-in dataMust" id="in1"/><label for="in1">Plastic</label></p>'+
+                '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Cloths</label></p>'+
+                '<p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Glass</label></p>'+
               '</div>');
 const int_s2 =$('<div class="col s5">'+
-                  '<p><input type="checkbox" class="filled-in" id="in4"/><label for="in4">Pilas</label></p>'+
-                  '<p><input type="checkbox" class="filled-in" id="in5"/><label for="in5">Aceite</label></p>'+
-                  '<p><input type="checkbox" class="filled-in" id="in6" /><label for="in6">Papel y Carton</label></p>'+
+                  '<p><input type="checkbox" class="filled-in" id="in4"/><label for="in4">Batteries</label></p>'+
+                  '<p><input type="checkbox" class="filled-in" id="in5"/><label for="in5">Oil</label></p>'+
+                  '<p><input type="checkbox" class="filled-in" id="in6" /><label for="in6">Paper and Paperboard</label></p>'+
                 '</div>');
 const int_s3 =$('<div class="input-field col s12">'+
             '<textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>'+
-            '<label for="textarea1">Observación</label>'+
+            '<label for="textarea1">Comment</label>'+
          '</div>');
  row_2.append(int_1,int_2,int_3,int_4,int_5,int_6,int_7,int_8,int_9,int_s1,int_s2,int_s3);
 
-  const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Enviar<i class="material-icons right">send</i></button>');
-  const btnReturn = $('<div class=""><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+  const btn_send =$('<button class="btn waves-effect waves-light" type="submit" name="action">Send<i class="material-icons right">send</i></button>');
+  const btnReturn = $('<div class=""><a class="waves-effect waves-light btn-large actions">Back</a></div>');
 
   form.append(btn_send);
   row_1.append(btnReturn);
@@ -403,7 +404,7 @@ const locationDetail = (location, updated) => {
 
 const MapaRecicla = (updated) => {
 
-    const parent = $('<div class="row"><h4>'+ state.material+'</h4></div>');
+    const parent = $('<div class="row"><h4>'+ state.type+'</h4></div>');
     const mapa = $('<div id="mapa" class="col s12"></div>');
     const detail = $('<div class="col s12"></div>');
     const btnReturn = $('<div class = "col s5 push-s3"><a class="waves-effect waves-light btn-large">Back</a></div>');
@@ -415,6 +416,7 @@ const MapaRecicla = (updated) => {
         state.pagina = state.pagina-1;
         state.material = null;
         state.locations = null;
+        state.type = null;
         updated();
     });
 
@@ -437,7 +439,7 @@ const Recicla = (updated) => {
                     { name:"Glass", nameEs: "Vidrio", img: "icon-wine" },
                     { name:"WEEE", nameEs: "RAEE", img: "icon-megaphone" },
                     { name:"Oil", nameEs: "Aceite", img: "icon-caution" },
-                    { name:"Paper and paperboard", nameEs: "Cartón y Papel", img: "icon-box2" },
+                    { name:"Paper & paperboard", nameEs: "Cartón y Papel", img: "icon-box2" },
                     { name:"Batteries", nameEs: "Pilas", img: "icon-battery2" }];
 
     const parent = $('<div class="container"></div>');
@@ -447,7 +449,7 @@ const Recicla = (updated) => {
     const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Back</a></div>');
 
     tipos.forEach(function(type){
-        const divContent = $('<div class="col s6" data-id = "'+ type.nameEs + '"></div>');
+        const divContent = $('<div class="col s6" data-id = "'+ type.nameEs + '" data-type = "'+ type.name + '"></div>');
         const img = $('<a class=""><i class="'+ type.img+'"></i></a>');
         const h5 = $('<h6 class="morado">'+ type.name + '</h6>');
 
@@ -457,6 +459,7 @@ const Recicla = (updated) => {
 
         divContent.on("click", (e) => {
             e.preventDefault();
+            state.type = $(e.currentTarget).data("type").toLowerCase();
             state.material = $(e.currentTarget).data("id").toLowerCase();
             state.locations = filterByMaterial(state.material);
             console.log(state.locations);
@@ -513,7 +516,8 @@ const SuccesAcopio = (update) => {
   const divCont_end = $('<div class="text-center"></div>');
     const row1      =$('<div class="row"></div>');
     const logo      =$('<div class="col s10 center-align"><img src="assets/img/gracias.png"  alt="check" class="img-responsive"></div>');
-    const cont_text =$('<div class="col s12"><h4 class="center-align">¡Bien!<br>Gracias por ser parte del movimiento</h4></div>');
+    // const cont_text =$('<div class="col s12"><h4 class="center-align">¡Bien!<br>Gracias por ser parte del movimiento</h4></div>');
+    const cont_text = $('<div class="col s12"><h4 class="center-align">GOOD!<br>Thank you for being a part of the movement</h4></div>');
 
     row1.append(logo);
     row1.append(cont_text);
@@ -535,14 +539,21 @@ const TipsR = (updated) => {
                     { name: "Cartón y Papel", img: "icon-box2" },
                     { name: "Pilas", img: "icon-battery2" }];
 
+    const tipos = [{ name: "Plastic", nameEs: "Plastico", img: "icon-bowling-pins" },
+                    { name: "Glass", nameEs: "Vidrio", img: "icon-wine" },
+                    { name: "WEEE", nameEs: "RAEE", img: "icon-megaphone" },
+                    { name: "Oil", nameEs: "Aceite", img: "icon-caution" },
+                    { name: "Paper & paperboard", nameEs: "Cartón y Papel", img: "icon-box2" },
+                    { name: "Batteries", nameEs: "Pilas", img: "icon-battery2" }];
+
                     const parent = $('<div class="container"></div>');
                     const row = $('<div class="row bg_green_ligth"></div>');
                     const divTitle = $('<div class="center-align col s12 recicla"><h5>Tips</h5></div>');
                     const container = $('<div class="center-align col s12 cont_optciones"></div>');
-                    const btnReturn = $('<div class="flex"><a class="waves-effect waves-light btn-large actions">Volver</a></div>');
+                    const btnReturn = $('<div class="flex"><a class="waves-effect waves-light btn-large actions">Back</a></div>');
 
-    tiposT.forEach(function(type){
-      const divContent = $('<div class="col s6" data-id = "'+ type.name + '"></div>');
+    tipos.forEach(function(type){
+        const divContent = $('<div class="col s6" data-id = "' + type.nameEs + '"  data-type = "' + type.name + '"></div>');
       const img = $('<a class=""><i class="'+type.img+'"></i></a>');
       const h5 = $('<h6 class="morado">'+ type.name + '</h6>');
 
@@ -552,6 +563,7 @@ const TipsR = (updated) => {
 
         divContent.on("click", (e) => {
             e.preventDefault();
+            state.type = $(e.currentTarget).data("type").toLowerCase();
             state.material = $(e.currentTarget).data("id").toLowerCase();;
             console.log(state.material);
             state.locations = filterByMaterial(state.material);
@@ -567,6 +579,7 @@ const TipsR = (updated) => {
         state.pagina = null;
         state.material = null;
         state.locations = null;
+        state.type = null;
         updated();
     })
 

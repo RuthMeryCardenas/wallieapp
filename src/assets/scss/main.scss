@@ -4,8 +4,20 @@
 body {
     margin: 0;
     padding: 0;
+    
 }
+@media (min-width: 400px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+  }
+  .media-div {
+    width: 400px;
+    height: 700px;
+  }
+}
 // @import "animate.scss";
 
 .logo {
@@ -44,7 +56,8 @@ div.recicla{
   background-color: #D1EAAF;
   border: 1px solid #D1EAAF;
   border-radius: 16px;
-  height: 45vh;
+  // height: 45vh;
+  padding-bottom: 10px;
 }
 .flex{
   display: flex;
@@ -114,6 +127,7 @@ div.recicla{
     background-color: #D1EAAF;
     border: 1px solid #D1EAAF;
     border-radius: 16px;
+    padding: 0 3px;
   }
 }
 .back a {

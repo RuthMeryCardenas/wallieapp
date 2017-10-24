@@ -6,7 +6,7 @@ const Recicla = (updated) => {
                     { name:"Glass", nameEs: "Vidrio", img: "icon-wine" },
                     { name:"WEEE", nameEs: "RAEE", img: "icon-megaphone" },
                     { name:"Oil", nameEs: "Aceite", img: "icon-caution" },
-                    { name:"Paper and paperboard", nameEs: "Cartón y Papel", img: "icon-box2" },
+                    { name:"Paper & paperboard", nameEs: "Cartón y Papel", img: "icon-box2" },
                     { name:"Batteries", nameEs: "Pilas", img: "icon-battery2" }];
 
     const parent = $('<div class="container"></div>');
@@ -16,7 +16,7 @@ const Recicla = (updated) => {
     const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Back</a></div>');
 
     tipos.forEach(function(type){
-        const divContent = $('<div class="col s6" data-id = "'+ type.nameEs + '"></div>');
+        const divContent = $('<div class="col s6" data-id = "'+ type.nameEs + '" data-type = "'+ type.name + '"></div>');
         const img = $('<a class=""><i class="'+ type.img+'"></i></a>');
         const h5 = $('<h6 class="morado">'+ type.name + '</h6>');
 
@@ -26,6 +26,7 @@ const Recicla = (updated) => {
 
         divContent.on("click", (e) => {
             e.preventDefault();
+            state.type = $(e.currentTarget).data("type").toLowerCase();
             state.material = $(e.currentTarget).data("id").toLowerCase();
             state.locations = filterByMaterial(state.material);
             console.log(state.locations);
