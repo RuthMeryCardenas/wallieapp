@@ -20,7 +20,7 @@ $( _ => {
     // });
 
 
-    console.log("%c¿Quieres ver más código? %cTe invito a mi repositorio en %cgithub.com/anadurand :)", "color: #059b85; font-size:15px; font-weight:bold", "color: #483e45; font-size:15px;", "color: #483e45; font-size:15px;font-weight:bold;");
+    console.log("%cDo you want to see more code? %cI invite you to my repository in %cgithub.com/anadurand :)", "color: #059b85; font-size:15px; font-weight:bold", "color: #483e45; font-size:15px;", "color: #483e45; font-size:15px;font-weight:bold;");
 });
 
 
@@ -309,10 +309,14 @@ function initMap () {
 
             var marker = new google.maps.Marker({
                 position: pos,
-                map: map
+                map: map,
+                icon: new google.maps.MarkerImage('assets/img/start.png',
+                new google.maps.Size(100,50),
+                new google.maps.Point(0,0),
+                new google.maps.Point(50,50)),
+                title: 'I am here'
             });
-
-
+           
             if(state.pagina == 2){
                 var markers = state.locations[0].lugares_acopio.map(function (location) {
                     var contentString = '<div id = "content"><p>'+location.name+'</p><p>'+location.direccion+'</p><p>'+location.horario+'</p></div>';
@@ -322,7 +326,12 @@ function initMap () {
 
                     const newMarker = new google.maps.Marker({
                         position: {lat: location.latitud, lng: location.longitud},
-                        map:map
+                        map:map,
+                        icon: new google.maps.MarkerImage('assets/img/end.png',
+                        new google.maps.Size(100,50),
+                        new google.maps.Point(0,0),
+                        new google.maps.Point(50,50)),
+                        title: `${location.name}`
                     })
                     newMarker.addListener("click", function(){
                         infowindow.open(map, newMarker);
@@ -357,8 +366,12 @@ function handleLocationError(browserHasGeolocation, map, pos) {
 
 function calculateAndDisplayRoute(pos, map) {
 
-     const directionsDisplay = new google.maps.DirectionsRenderer;
      const directionsService = new google.maps.DirectionsService;
+     const rendererOptions = {
+        map: map,
+        suppressMarkers: true
+    };
+    const directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
     directionsDisplay.setMap(map);
     directionsService.route({
         origin: pos,
@@ -368,13 +381,38 @@ function calculateAndDisplayRoute(pos, map) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
             const distancia = ((response.routes[0].legs[0].distance.text));
+            const route = response.routes[0].legs[0];
+            createMarkerRoutesInit(route.start_location, map);
+            createMarkerRoutesFinish(route.end_location, map);
             // $('#km').text(distancia);
         } else {
             window.alert('Directions request failed due to ' + status);
         }
     });
+    directionsDisplay.setOptions({
+        polylineOptions: {
+                    strokeWeight: 4,
+                    strokeOpacity: 1,
+                    strokeColor:  'green' 
+                }
+    });
 }
 
+function createMarkerRoutesInit(position, map) {
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        icon: new google.maps.MarkerImage('assets/img/start.png')
+    });
+}
+
+function createMarkerRoutesFinish(position, map) {
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        icon: new google.maps.MarkerImage('assets/img/end.png')
+    });
+}
 "use strict";
 
 
@@ -491,10 +529,10 @@ const RutaRecicla = (updated) => {
 
     const parent = $('<div class=""></div>');
     const mapa = $('<div id="mapa"></div>');
-    const detail = $('<div class=""></div>');
+    const detail = $(`<div class="detail"><div class="cont_detail" data-lugar=""><div class="name_acopio"><i class="icon-feather "></i><span class="">${state.selectedLocation.name}</span></div><div class="ruta_acopio"><span class="ruta">${state.selectedLocation.direccion}</span></div></div></div>`);
     const btnReturn = $('<div class="back flex"><a class="waves-effect waves-light btn-large">Back</a></div>');
 
-
+    console.log(state.selectedLocation);
     parent.append(mapa);
     parent.append(detail);
     parent.append(btnReturn);
