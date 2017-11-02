@@ -2,10 +2,10 @@
   "name": "wallieapp",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,9 @@
     "gulp",
     "sass",
     "js",
-    "html"
+    "html",
+    "react",
+    "webpack"
   ],
   "author": "wallieapp",
   "license": "ISC",
@@ -24,7 +26,14 @@
   },
   "homepage": "https://github.com/anadurand/wallieapp#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-boilerplate": "^1.1.1",
     "browser-sync": "^2.18.12",
+    "css-loader": "^0.28.7",
     "express": "^4.15.3",
     "gulp-6to5": "^3.0.0",
     "gulp-browserify": "^0.5.1",
@@ -32,10 +41,20 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.0",
+    "html-webpack-plugin": "^2.30.1",
+    "open-browser-webpack-plugin": "0.0.5",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
   },
   "dependencies": {
     "express": "^4.15.3",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "node-static": "^0.7.10",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   }
 }
