@@ -53,7 +53,7 @@ const int_8 =$('<div class="input-field col s5">'+
 const int_9 =$('<div class="col s10"><h6>Materials</h6></div>');
 const int_s1 =$('<div class="col s5">'+
                 '<p><input type="checkbox" class="filled-in dataMust" id="in1"/><label for="in1">Plastic</label></p>'+
-                '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Cloths</label></p>'+
+                '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">WEEE</label></p>'+
                 '<p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Glass</label></p>'+
               '</div>');
 const int_s2 =$('<div class="col s5">'+

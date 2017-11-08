@@ -11,7 +11,7 @@ const Recicla = (updated) => {
 
     const parent = $('<div class="container"></div>');
     const row = $('<div class="row bg_green_ligth"></div>');
-    const divTitle = $('<div class="center-align col s12 recicla"><h4>Recycle</h4></div>');
+    const divTitle = $('<div class="center-align col s12 recicla"><h4>Choose the Material</h4></div>');
     const container = $('<div class="center-align col s12 cont_optciones"></div>');
     const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Back</a></div>');
 

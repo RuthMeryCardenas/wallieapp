@@ -197,7 +197,7 @@ const int_8 =$('<div class="input-field col s5">'+
 const int_9 =$('<div class="col s10"><h6>Materials</h6></div>');
 const int_s1 =$('<div class="col s5">'+
                 '<p><input type="checkbox" class="filled-in dataMust" id="in1"/><label for="in1">Plastic</label></p>'+
-                '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">Cloths</label></p>'+
+                '<p><input type="checkbox" class="filled-in" id="in2" /><label for="in2">WEEE</label></p>'+
                 '<p><input type="checkbox" class="filled-in" id="in3" /><label for="in3">Glass</label></p>'+
               '</div>');
 const int_s2 =$('<div class="col s5">'+
@@ -442,7 +442,7 @@ const locationDetail = (location, updated) => {
 
 const MapaRecicla = (updated) => {
 
-    const parent = $('<div class="row"><h4>'+ state.type+'</h4></div>');
+    const parent = $('<div class="row"><h4>'+ state.type.toUpperCase()+'</h4></div>');
     const mapa = $('<div id="mapa" class="col s12"></div>');
     const detail = $('<div class="col s12"></div>');
     const btnReturn = $('<div class = "col s5 push-s3"><a class="waves-effect waves-light btn-large">Back</a></div>');
@@ -482,7 +482,7 @@ const Recicla = (updated) => {
 
     const parent = $('<div class="container"></div>');
     const row = $('<div class="row bg_green_ligth"></div>');
-    const divTitle = $('<div class="center-align col s12 recicla"><h4>Recycle</h4></div>');
+    const divTitle = $('<div class="center-align col s12 recicla"><h4>Choose the Material</h4></div>');
     const container = $('<div class="center-align col s12 cont_optciones"></div>');
     const btnReturn = $('<div class="bg_green_ligth1 flex"><a class="waves-effect waves-light btn-large actions">Back</a></div>');
 
@@ -586,7 +586,7 @@ const TipsR = (updated) => {
 
                     const parent = $('<div class="container"></div>');
                     const row = $('<div class="row bg_green_ligth"></div>');
-                    const divTitle = $('<div class="center-align col s12 recicla"><h5>Tips</h5></div>');
+                    const divTitle = $('<div class="center-align col s12 recicla"><h5>Choose the Material</h5></div>');
                     const container = $('<div class="center-align col s12 cont_optciones"></div>');
                     const btnReturn = $('<div class="flex"><a class="waves-effect waves-light btn-large actions">Back</a></div>');
 
