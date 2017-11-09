@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+
+.logo {
+  width: 100%;
+  height: 200px;
+  background-image: url("/assets/img/logo1.png");
+  margin-top: 40px; 
+  background-position: center;
+  background-repeat: no-repeat
+}
+
+.main-container {
+  padding: 0 20px;
+}
+
+.item-material {
+  font-size: 2em;
+  margin: 10px 0;
+}
+.icono {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-position: center;
+  background-size: cover;
+
+}
+.initial {
+  text-align: center;
+  font-size: 3em;
+}
+.cont_detail {
+  border: 1px solid black;
+  margin: 5px 0;
+}
