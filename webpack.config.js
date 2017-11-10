@@ -43,7 +43,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: resolve(__dirname, 'public', 'index.html'),
+            template: resolve(__dirname, 'src', 'index.html'),
             filename: 'index.html'
         }),
         new OpenBrowserWebpackPlugin({

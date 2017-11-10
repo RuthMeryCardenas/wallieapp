@@ -2,13 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Map from './Mapa'
 import DetalleLugar from './DetalleLugar'
+import ReactMap from './ReactMaps'
 
 class DetalleMaterial extends React.Component {
   renderDetalle() {
     if (!this.props.materialActivo) {
       return (
           <div className = "col s8 initial">
-            <Map />
+            <ReactMap />
           </div>
       )
     }
@@ -18,7 +19,7 @@ class DetalleMaterial extends React.Component {
 
     return (
       <div className="col s8">
-        <Map />
+        <ReactMap />
         <DetalleLugar />
         
       </div>
