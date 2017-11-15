@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import MaterialItem from './MaterialItem'
 
+
 class MaterialList extends React.Component {
   render() {
     // console.log(this.props)
@@ -19,7 +20,7 @@ class MaterialList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state);
+  console.log("materiallist", state);
   const { lugares } = state
 
   return {

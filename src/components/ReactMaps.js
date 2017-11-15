@@ -1,25 +1,8 @@
 import React from 'react'
 import { compose, withProps } from "recompose"
-import Geolocation from 'react-geolocation'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
-const position = () => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            console.warn(position)
-            return {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            }
-            
-        });
-        
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, map, map.getCenter());
-    }
 
-}
 const MyMapComponent = compose (
     withProps({
         googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
@@ -31,27 +14,13 @@ const MyMapComponent = compose (
     withGoogleMap
 )( (props) => {
     
-   return (
-    <Geolocation
-    render={({
-      position: { coords: { latitude, longitude } = {} } = {},
-      error,
-      getCurrentPosition
-    }) =>
-      <div>
-        {error &&
-          <div>
-            {error.message}
-          </div>}
-          <GoogleMap
-        defaultZoom={16}
-        defaultCenter={position.coords}
-    >
-        {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} onClick={props.onMarkerClick} />}
-        <Marker position={{ lat: -12.397, lng: 150.644 }} />
-    </GoogleMap>
-      </div>}
-  />
+   return (    
+       <GoogleMap
+           defaultZoom={4}
+           defaultCenter={{ lat: -8.667918 , lng: -76.59668 }}
+       >
+           {props.isMarkerShown && <Marker position={{ lat: -8.667918, lng: -76.59668 }} onClick={props.onMarkerClick} />}
+       </GoogleMap>     
    )
     }
 )
