@@ -1,17 +1,21 @@
-import {
-    ACTUAL_LOCATION
-} from '../actions/types'
+// import {
+//     ACTUAL_LOCATION
+// } from '../actions/types'
 
 let LOCAL;
 
+const getLocation = () => {
 
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(sendvalue, error);
-    
-} else {
-    // Browser doesn't support Geolocation
-    alert("Geolocation is not supported by this browser.");
+    if (navigator.geolocation) {
+       navigator.geolocation.getCurrentPosition(sendvalue, error);
+       
+       return LOCAL;
+    } else {
+        // Browser doesn't support Geolocation
+        alert("Geolocation is not supported by this browser.");
+    }
 }
+
 
 function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
@@ -22,8 +26,7 @@ function sendvalue(position) {
         lat: position.coords.latitude,
         lng: position.coords.longitude
     };
-    LOCAL = pos;
-    console.log("fuera",LOCAL)
+    LOCAL =  pos;
 }
 
 // const UBICACION = LOCAL!= undefined ? LOCAL: null;
@@ -40,4 +43,4 @@ function sendvalue(position) {
 //     }
 // }
 
-export default LOCAL;
+export default getLocation;

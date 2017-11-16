@@ -1,7 +1,7 @@
 import React from 'react'
 import { compose, withProps } from "recompose"
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
-
+import { MarkerWithLabel } from 'react-google-maps/lib/components/addons/MarkerWithLabel'
 
 const MyMapComponent = compose (
     withProps({
@@ -13,13 +13,36 @@ const MyMapComponent = compose (
     withScriptjs,
     withGoogleMap
 )( (props) => {
+    console.log("googlemaps", props)
     
    return (    
        <GoogleMap
-           defaultZoom={4}
-           defaultCenter={{ lat: -8.667918 , lng: -76.59668 }}
+           zoom={props.zoom}
+           center={{ lat: -12.0431800, lng: -77.0282400 }}
        >
-           {props.isMarkerShown && <Marker position={{ lat: -8.667918, lng: -76.59668 }} onClick={props.onMarkerClick} />}
+           {
+               
+               props.markers &&
+               props.markers.map(marker => {
+                   return props.isMarkerShown ? (
+                       <MarkerWithLabel position={{
+                           lat: marker.latitud,
+                           lng: marker.longitud
+                       }} 
+                        key = {marker.name}
+                        labelAnchor={new google.maps.Point(0, 0)}
+                        labelStyle={{ backgroundColor: "rgba(255, 255, 255,0.5)", fontSize: "14px", padding: "10px" }}
+                        labelVisible = {props.showLabel}
+                        onClick = {props.onMarkerClick()}
+                        >
+                           <div>
+                               <b>{marker.name}</b>
+                               <p>{marker.direccion}</p>
+                           </div>
+                       </MarkerWithLabel>
+                   ) : null
+               })
+           }
        </GoogleMap>     
    )
     }
@@ -27,26 +50,51 @@ const MyMapComponent = compose (
 
 class MyFancyComponent extends React.PureComponent {
     state = {
-        isMarkerShown: false,
+        showMarkerContent: false,
+        showLabel: false,
     }
 
     componentDidMount() {
         this.delayedShowMarker()
+        this.getLocation()
     }
     delayedShowMarker = () => {
         setTimeout(()=> {
             this.setState({isMarkerShown:true})
         }, 3000)
     }
+    getLocation = () => {
+        
+        navigator.geolocation.getCurrentPosition((position) =>{
+            this.setState({
+                currectLocation: {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                }});
+        } , error);
+              
+        function error(err) {
+            console.warn('ERROR(' + err.code + '): ' + err.message);
+        };
+
+    }
     handleMarkerClick = ()=> {
-        this.setState({isMarkerShown:false})
-        this.delayedShowMarker()
+        console.log('marker clicked')
+        this.setState({showLabel:true})
+        // this.delayedShowMarker()
     }
     render() {
+        console.log('marcadores props en el mapa', this.props.marcadores)
+        // console.log('actual location', this.props)
+        
         return (
             <MyMapComponent
+                markers={this.props.marcadores}
                 isMarkerShown= {this.state.isMarkerShown}
                 onMarkerClick = {this.handleMarkerClick}
+                localPosition = {this.currectLocation}
+                zoom = {this.props.zoom}
+                showLabel = {this.state.showLabel}
             />
         )
     }

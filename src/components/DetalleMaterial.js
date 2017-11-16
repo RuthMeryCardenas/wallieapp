@@ -1,25 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Map from './Mapa'
+import getLocation from '../reducers/ActualLocationReducer'
 import DetalleLugar from './DetalleLugar'
 import ReactMap from './ReactMaps'
 
+console.log("local", getLocation());
 class DetalleMaterial extends React.Component {
   renderDetalle() {
     if (!this.props.materialActivo) {
       return (
           <div className = "col s8 initial">
-            <ReactMap />
+            <ReactMap zoom = {4} />
           </div>
       )
     }
     
     
-    const { tipos } = this.props.materialActivo
-
+    const { tipos, lugares_acopio } = this.props.materialActivo
+    console.log('material activo', this.props.materialActivo)
     return (
       <div className="col s8">
-        <ReactMap />
+        <ReactMap marcadores ={lugares_acopio} zoom={13}  />
         <DetalleLugar />
         
       </div>
