@@ -46,6 +46,7 @@
     "eslint-plugin-react": "^7.4.0",
     "express": "^4.15.3",
     "file-loader": "^1.1.5",
+    "gh-pages": "^1.0.0",
     "gulp-6to5": "^3.0.0",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.1",
