@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack --config webpack.config.prod.js --progress --profile --colors",
+    "deploy": "gh-pages -d public",
+    "clean": "del-cli ./public/*.min..css && del-cli ./public/*.min.js",
+    "lint": "eslint ./src/"
   },
   "repository": {
     "type": "git",

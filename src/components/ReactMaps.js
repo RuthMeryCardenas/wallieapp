@@ -33,7 +33,7 @@ const MyMapComponent = compose (
                         labelAnchor={new google.maps.Point(0, 0)}
                         labelStyle={{ backgroundColor: "rgba(255, 255, 255,0.5)", fontSize: "14px", padding: "10px" }}
                         labelVisible = {props.showLabel}
-                        onClick = {props.onMarkerClick()}
+                        onMouseOver = {props.onMarkerClick(props)}
                         >
                            <div>
                                <b>{marker.name}</b>
@@ -78,13 +78,13 @@ class MyFancyComponent extends React.PureComponent {
         };
 
     }
-    handleMarkerClick = ()=> {
-        console.log('marker clicked')
-        this.setState({showLabel:true})
+    handleMarkerClick = (props)=> {
+        console.log('marker clicked', props)
+        // this.setState({showLabel:true})
         // this.delayedShowMarker()
     }
     render() {
-        console.log('marcadores props en el mapa', this.props.marcadores)
+        // console.log('marcadores props en el mapa', this.props.marcadores)
         // console.log('actual location', this.props)
         
         return (
