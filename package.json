@@ -7,9 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
     "build": "webpack --config webpack.config.prod.js --progress --profile --colors",
-    "deploy": "gh-pages -d public",
-    "clean": "del-cli ./public/*.min..css && del-cli ./public/*.min.js",
-    "lint": "eslint ./src/"
+    "deploy": "npm build && gh-pages -d public"
   },
   "repository": {
     "type": "git",

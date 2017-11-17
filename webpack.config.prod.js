@@ -6,8 +6,8 @@ module.exports = {
     entry: './app.js',
     context: resolve(__dirname, 'src'),
     output: {
-        filename: 'app.min.js',
-        path: resolve(__dirname, 'dist'),
+        filename: 'bundle.min.js',
+        path: resolve(__dirname, 'public'),
         publicPath: ''
     },
     plugins: [
