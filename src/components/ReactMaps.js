@@ -53,10 +53,13 @@ class MyFancyComponent extends React.PureComponent {
         showMarkerContent: false,
         showLabel: false,
     }
-
+    
+    componentWillMount() {
+        this.getLocation()
+        
+    }
     componentDidMount() {
         this.delayedShowMarker()
-        this.getLocation()
     }
     delayedShowMarker = () => {
         setTimeout(()=> {
@@ -71,6 +74,7 @@ class MyFancyComponent extends React.PureComponent {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 }});
+          
         } , error);
               
         function error(err) {
@@ -92,7 +96,7 @@ class MyFancyComponent extends React.PureComponent {
                 markers={this.props.marcadores}
                 isMarkerShown= {this.state.isMarkerShown}
                 onMarkerClick = {this.handleMarkerClick}
-                localPosition = {this.currectLocation}
+                localPosition = {this.getLocation()}
                 zoom = {this.props.zoom}
                 showLabel = {this.state.showLabel}
             />
